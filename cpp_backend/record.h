@@ -13,10 +13,21 @@ class Record{
     uint32_t _id;
     uint16_t _name_size;
     uint32_t _info;
-    char *_name;
+    string _name;
+
+public:
+    Record();
+    Record(uint32_t _id, uint16_t _name_size, uint32_t _info);
+    Record(uint32_t _id, uint16_t _name_size, uint32_t _info, string _name);
+
+    uint32_t getid();
+    string* getname();
+    uint8_t getchalu();
+    uint8_t getflag();
+    uint8_t getfanhao();
 };
 
-int readDat();
+int readDat(Record *rows);
 
 void endianChange(struct _struct_record &t);
 
@@ -34,11 +45,4 @@ struct _struct_record {
 //    byte _id[4];
 //    byte _name_size[2];
 //    byte _info[4];
-//};
-
-//class Record{
-//    _struct_record _record;
-//    char * _name;
-//
-//
 //};

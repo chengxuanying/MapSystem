@@ -9,6 +9,11 @@
 
 #include <iostream>
 #include <cstdio>
-#include <string>
+#include <iconv.h>
+
+#define MAX 64000
+
+#include "json.hpp"
+using json = nlohmann::json;
 
 using namespace std;
