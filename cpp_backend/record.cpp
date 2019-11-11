@@ -15,7 +15,7 @@ void endianChange(struct _struct_record &t) {
 int readDat() {
     // create tmp struct
     struct _struct_record _tmp_struct_record;
-    char _tmp_string[100];
+
     int _string_size = 0;
 
     FILE *fptr = fopen("../GTBL.dat", "rb");
@@ -32,13 +32,17 @@ int readDat() {
 
         endianChange(_tmp_struct_record);
         _string_size = _tmp_struct_record._struct_size - 12; // 12 = 2 + 4 + 2 + 4
+
+        char _tmp_string[100];
         fread(_tmp_string, _string_size * sizeof(char), 1, fptr);
         _tmp_string[_string_size + 1] = 0;
 
 
         cout << _tmp_string << ';' << endl;
-        char *a = "123是23";
-        cout << a << endl;
+        std::string str2 ( _tmp_string);
+        cout << str2 << endl;
+//        char *a = "123是23";
+//        cout << a << endl;
         cout << ++cnt << ":" << _tmp_struct_record._name_size << endl;
     }
 
