@@ -22,6 +22,24 @@ void print_rows(class Record *rows, int cnt) {
     cout << j.dump();
 }
 
+void print_rows(class Record **rows, int cnt) {
+    class Record *t;
+
+    json j;
+    j["cnt"] = cnt;
+
+    for (int i = 0; i < cnt; ++i) {
+        t = rows[i];
+        j["result"].push_back({{"linkid", t->getid()},
+                               {"name",   *t->getname()},
+                               {"flag",   t->getflag()},
+                               {"chalu",  t->getchalu()},
+                               {"fanhao", t->getfanhao()}});
+    }
+
+    cout << j.dump();
+}
+
 void retrieve_by_name(class Record *rows, int cnt, char *name) {
     class Record *t;
 
