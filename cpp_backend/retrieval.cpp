@@ -26,12 +26,14 @@ void retrieve_by_name(class Record *rows, int cnt, char *name) {
     class Record *t;
 
     json j;
-    j["cnt"] = cnt;
 
+    int _cnt = 0;
     for (int i = 0; i < cnt; ++i) {
         t = rows + i;
         if (t->getname()->compare(name) != 0)
             continue;
+
+        _cnt ++;
         j["result"].push_back({{"linkid", t->getid()},
                                {"name",   *t->getname()},
                                {"flag",   t->getflag()},
@@ -39,6 +41,7 @@ void retrieve_by_name(class Record *rows, int cnt, char *name) {
                                {"fanhao", t->getfanhao()}});
     }
 
+    j["cnt"] = _cnt;
     cout << j.dump();
 }
 

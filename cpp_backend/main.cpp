@@ -44,14 +44,14 @@ int main(int argc, char **argv) {
 
     } else {
         help:
-        cout << "cpp_backend的用法:(GTBL.dat在同一目录下)" << endl;
+        cout << "cpp_backend的用法:(GTBL.dat在同一目录下，此程序不检查参数正确性)" << endl;
         cout << "./cpp_backend sample 输出十个给你测试用" << endl;
         cout << "./cpp_backend list 输出所有地图信息" << endl;
 
-        cout << "./cpp_backend retrieve name xxx  根据名字检索(顺序查找)" << endl;
-        cout << "./cpp_backend retrieve chalu xxx  根据岔路数量检索(顺序查找)" << endl;
-        cout << "./cpp_backend retrieve fanhao xxx  根据番号检索(顺序查找)" << endl;
-        cout << "./cpp_backend retrieve linkid xxx  根据linkid检索(顺序查找)" << endl;
+        cout << "./cpp_backend retrieve name \"xxx\"  根据名字检索(顺序查找)" << endl;
+        cout << "./cpp_backend retrieve chalu xxx  根据岔路数量检索(顺序查找),0<=xxx<8" << endl;
+        cout << "./cpp_backend retrieve fanhao xxx  根据番号检索(顺序查找),0<=xxx<16" << endl;
+        cout << "./cpp_backend retrieve linkid xxx  根据linkid检索(顺序查找),0<=xxx<int_max" << endl;
     }
 
 
