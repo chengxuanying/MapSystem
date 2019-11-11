@@ -11,3 +11,11 @@
 #include "global.h"
 
 void print_rows(class Record *rows, int cnt = 10);
+
+void retrieve_by_name(class Record *rows, int cnt, char *name);
+
+void retrieve_by_chalu(class Record *rows, int cnt, char *chalu);
+
+void retrieve_by_fanhao(class Record *rows, int cnt, char *fanhao);
+
+void retrieve_by_linkid(class Record *rows, int cnt, char *linkid);
