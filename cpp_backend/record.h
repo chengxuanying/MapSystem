@@ -9,7 +9,7 @@
 
 #include "global.h"
 
-class Record{
+class Record {
     uint32_t _id;
     uint16_t _name_size;
     uint32_t _info;
@@ -17,14 +17,23 @@ class Record{
 
 public:
     Record();
+
     Record(uint32_t _id, uint16_t _name_size, uint32_t _info);
+
     Record(uint32_t _id, uint16_t _name_size, uint32_t _info, string _name);
 
     uint32_t getid();
-    string* getname();
+
+    string *getname();
+
     uint8_t getchalu();
+
     uint8_t getflag();
+
     uint8_t getfanhao();
+
+    uint32_t get_info();
+
 };
 
 int readDat(Record *rows);
@@ -38,11 +47,4 @@ struct _struct_record {
     uint32_t _info;
 } __attribute__((packed)); // disable alignment
 
-
-//#define byte unsigned char
-//struct _struct_record{
-//    byte _struct_size[2];
-//    byte _id[4];
-//    byte _name_size[2];
-//    byte _info[4];
-//};
+int writeDat(Record **ptr, int cnt);

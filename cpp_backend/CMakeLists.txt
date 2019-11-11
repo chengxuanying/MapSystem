@@ -3,5 +3,5 @@ project(cpp_backend)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(cpp_backend main.cpp utils.cpp utils.h record.cpp record.h global.h retrieval.cpp retrieval.h)
+add_executable(cpp_backend main.cpp utils.cpp utils.h record.cpp record.h global.h retrieval.cpp retrieval.h sort.cpp sort.h)
 target_link_libraries(cpp_backend iconv)

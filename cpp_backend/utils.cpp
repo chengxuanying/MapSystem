@@ -4,7 +4,7 @@
 
 #include "global.h"
 #include "utils.h"
-
+#include "record.h"
 
 //! Byte swap unsigned short
 uint16_t swap_uint16(uint16_t val) {
@@ -47,8 +47,11 @@ int code_convert(char *from_charset, char *to_charset, char *inbuf, size_t inlen
 std::string any2utf8(std::string in, std::string fromEncode, std::string toEncode) {
     char *inbuf = (char *) in.c_str();
     int inlen = strlen(inbuf);
-    int outlen = inlen * 3;//in case unicode 3 times than ascii
-    char outbuf[1234] = {0};
+    int outlen = inlen * 3 + 5;//in case unicode 3 times than ascii + 5 to remove "" zero string
+    char outbuf[outlen];// = {0};
+    for (int i = 0; i < outlen; ++i) {
+        outbuf[i] = '\0';
+    }
 
     int rst = code_convert((char *) fromEncode.c_str(), (char *) toEncode.c_str(), inbuf, inlen, outbuf, outlen);
     if (rst == 0) {
@@ -60,4 +63,18 @@ std::string any2utf8(std::string in, std::string fromEncode, std::string toEncod
 
 std::string gbk2utf8(const char *in) {
     return any2utf8(std::string(in), std::string("gbk"), std::string("utf-8"));
+}
+
+std::string utf82gbk(const char *in) {
+    return any2utf8(std::string(in), std::string("utf-8"), std::string("gbk"));
+}
+
+std::string utf82gbk(string in) {
+    return any2utf8(in, std::string("utf-8"), std::string("gbk"));
+}
+
+void init_ptr(class Record **ptr, class Record *rows, int cnt) {
+    for (int i = 0; i < cnt; ++i) {
+        ptr[i] = rows + i;
+    }
 }

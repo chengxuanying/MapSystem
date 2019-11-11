@@ -31,7 +31,7 @@ int readDat(Record *rows) {
 
     int cnt = 0;
     while (fread(&_tmp_record, sizeof(_struct_record), 1, fptr) == 1) {
-    // till eof
+        // till eof
 
 
         endianChange(_tmp_record);
@@ -91,4 +91,47 @@ uint8_t Record::getflag() {
 
 uint8_t Record::getfanhao() {
     return (this->_info & 0x000F);
+}
+
+uint32_t Record::get_info() {
+    return this->_info;
+}
+
+
+int writeDat(Record **ptr, int cnt) {
+    // create tmp struct
+    struct _struct_record _tmp_record;
+    Record *t;
+
+    int _string_size = 0;
+    string _tmp_string;
+
+    FILE *fptr = fopen("GTBL_.dat", "wb+");
+
+    // if not have file than raise error
+    if (fptr == NULL) {
+        printf("Cannot open GTBL_.dat!");
+        exit(1);
+    }
+
+    for (int i = 0; i < cnt; ++i) {
+        t = ptr[i];
+
+        const char *_name = utf82gbk(*t->getname()).c_str();
+
+        _tmp_record._struct_size = 12 + strlen(_name);
+        _tmp_record._id = t->getid();
+        _tmp_record._name_size = 0;
+        _tmp_record._info = t->get_info();
+
+        // restore
+//        cout << strlen(_name) << endl;
+        endianChange(_tmp_record);
+        fwrite(&_tmp_record, sizeof(_tmp_record), 1, fptr);
+        fwrite(_name, strlen(_name), 1, fptr);
+    }
+
+
+    fclose(fptr);
+    return cnt;
 }

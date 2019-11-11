@@ -7,9 +7,12 @@
 
 int main(int argc, char **argv) {
 
-    class Record rows[MAX], *t;
+    class Record rows[MAX], *ptr[MAX];
     int cnt = readDat(rows);
+    init_ptr(ptr, rows);
 
+//    writeDat(ptr, cnt);
+//    return 0;
     if (argc == 2) {
         if (strcmp("sample", argv[1]) == 0) {
             print_rows(rows);
@@ -52,6 +55,12 @@ int main(int argc, char **argv) {
         cout << "./cpp_backend retrieve chalu xxx  根据岔路数量检索(顺序查找),0<=xxx<8" << endl;
         cout << "./cpp_backend retrieve fanhao xxx  根据番号检索(顺序查找),0<=xxx<16" << endl;
         cout << "./cpp_backend retrieve linkid xxx  根据linkid检索(顺序查找),0<=xxx<int_max" << endl;
+
+        cout << "./cpp_backend sort name  根据名字排序" << endl;
+        cout << "./cpp_backend sort chalu 根据岔路数量排序" << endl;
+        cout << "./cpp_backend sort fanhao 根据番号排序" << endl;
+        cout << "./cpp_backend sort linkid 根据linkid排序" << endl;
+
     }
 
 

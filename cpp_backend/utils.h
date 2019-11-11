@@ -7,6 +7,7 @@
 
 #endif //CPP_BACKEND_UTILS_H
 
+#include "global.h"
 #include <stdint.h>
 
 uint16_t swap_uint16(uint16_t val);
@@ -23,3 +24,8 @@ std::string any2utf8(std::string in, std::string fromEncode, std::string toEncod
 
 std::string gbk2utf8(const char *in);
 
+std::string utf82gbk(const char *in);
+
+std::string utf82gbk(string in);
+
+void init_ptr(class Record **ptr, class Record *rows, int cnt = MAX);
