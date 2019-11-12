@@ -38,7 +38,13 @@
 </template>
 
 <script>
-    export default {}
+    export default {
+        data(){
+            return {
+                activeIndex:this.$route.path
+            }
+        }
+    }
 </script>
 
 <style>
