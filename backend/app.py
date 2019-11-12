@@ -35,6 +35,38 @@ def get_page(page_size, page):
     end = page * page_size
     return json.dumps({"result": database['result'][start: end]})
 
+@app.route('/retrieve/sort/<string:column>/<string:order>', methods=['GET'])
+def sort_page(column, order):
+    if order == 'null':
+        refresh()
+        return json.dumps({"result": None})
+
+    a = {
+        'ascending': 'up',
+        'descending': 'down',
+    }
+
+    r = os.popen('./test/cpp_backend sort {} {}'.format(column, a[order]))
+    text = r.read()
+    r.close()
+
+    global database
+    database = json.loads(text)
+
+    return json.dumps({"result": None})
+
+
+
+@app.route('/retrieve/<string:arg1>/<string:arg2>', methods=['GET'])
+def retrieve_something(arg1, arg2):
+    r = os.popen('./test/cpp_backend retrieve {} {}'.format(arg1, arg2))
+    text = r.read()
+    r.close()
+
+    return text
+
+
+
 
 def get_list():
     r = os.popen('./test/cpp_backend list')

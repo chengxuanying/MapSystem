@@ -106,7 +106,7 @@ int writeDat(Record **ptr, int cnt) {
     int _string_size = 0;
     string _tmp_string;
 
-    FILE *fptr = fopen("GTBL_.dat", "wb+");
+    FILE *fptr = fopen("GTBL.dat", "wb+");
 
     // if not have file than raise error
     if (fptr == NULL) {

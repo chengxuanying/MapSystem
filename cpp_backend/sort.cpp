@@ -71,20 +71,20 @@ void bubble_sort(class Record **ptr, int cnt,
 
 void sort_my_record_by_name(class Record **ptr, int cnt, bool reversed) {
     qSort(ptr, cnt, smaller_by_name, reversed);
-    print_rows(ptr);
+    print_rows(ptr, cnt);
 }
 
 void sort_my_record_by_chalu(class Record **ptr, int cnt, bool reversed) {
     qSort(ptr, cnt, smaller_by_chalu, reversed);
-    print_rows(ptr);
+    print_rows(ptr, cnt);
 }
 
 void sort_my_record_by_fanhao(class Record **ptr, int cnt, bool reversed) {
     qSort(ptr, cnt, smaller_by_fanhao, reversed);
-    print_rows(ptr);
+    print_rows(ptr, cnt);
 }
 
 void sort_my_record_by_linkid(class Record **ptr, int cnt, bool reversed) {
     qSort(ptr, cnt, smaller_by_linkid, reversed);
-    print_rows(ptr);
+    print_rows(ptr, cnt);
 }
