@@ -23,30 +23,30 @@
         </el-carousel>
 
         <el-row type="flex" justify="space-around">
-            <el-col :span="6">
+            <el-col :span="7">
                 <el-card :body-style="{ padding: '0px' }" shadow="never">
-                    <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+                    <img src="dist/1.png"
                          class="image">
                     <div style="padding: 10px; text-align: center;">
-                        <span>低耦合设计</span>
+                        <span>MapSystem</span>
                     </div>
                 </el-card>
             </el-col>
-            <el-col :span="6">
+            <el-col :span="7">
                 <el-card :body-style="{ padding: '0px' }" shadow="never">
-                    <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+                   <img src="dist/2.png"
                          class="image">
-                    <div style="padding: 10px; text-align: center;">
-                        <span>可视化界面</span>
+                    <div style="padding: 22px; text-align: center;">
+                        <span>数据检索</span>
                     </div>
                 </el-card>
             </el-col>
-            <el-col :span="6">
+            <el-col :span="7">
                 <el-card :body-style="{ padding: '0px' }" shadow="never">
-                    <img src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
+                   <img src="dist/3.png"
                          class="image">
-                    <div style="padding: 10px; text-align: center;">
-                        <span>高可用服务</span>
+                    <div style="padding: 20px; text-align: center;">
+                        <span>算法对比</span>
                     </div>
                 </el-card>
             </el-col>
