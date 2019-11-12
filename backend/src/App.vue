@@ -63,6 +63,6 @@ export default {
 }
 
 .margin{
-  margin-top: 25px;
+  margin-top: 60px;
 }
 </style>

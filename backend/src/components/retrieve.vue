@@ -30,12 +30,28 @@
 </template>
 
 <script>
+
+import axios from 'axios'
+
  export default {
     data() {
       return {
-        tableData: [{"chalu":3,"fanhao":6,"flag":1,"linkid":2130,"name":"１＝104国道"},{"chalu":2,"fanhao":4,"flag":0,"linkid":2131,"name":""},{"chalu":2,"fanhao":6,"flag":1,"linkid":2132,"name":"１＝104国道"},{"chalu":3,"fanhao":11,"flag":0,"linkid":11852,"name":""},{"chalu":3,"fanhao":11,"flag":0,"linkid":12391,"name":""},{"chalu":3,"fanhao":6,"flag":1,"linkid":2133,"name":"１＝104国道"},{"chalu":2,"fanhao":6,"flag":1,"linkid":2134,"name":"１＝104国道"},{"chalu":2,"fanhao":11,"flag":0,"linkid":11835,"name":""},{"chalu":2,"fanhao":4,"flag":1,"linkid":811,"name":"１＝杭宁高速公路"},{"chalu":1,"fanhao":4,"flag":1,"linkid":846,"name":"１＝杭宁高速公路"}]
+        tableData: []
       }
-    }
+    },
+    created(){
+        axios.get('http://127.0.0.1:5000/retrieve/test',{       // 还可以直接把参数拼接在url后边
+        }).then(function(res){
+            //console.log(res.data.result);
+            this.tableData = res.data.result;
+                //   console.log(this.tableData);
+            // var obj = JSON.parse(res.data);
+        //console.log(this.tableData);
+        }).catch(function (error) {
+            console.log(error);
+        });
+  
+}
   }
 </script>
 <style>
