@@ -65,7 +65,20 @@ def retrieve_something(arg1, arg2):
 
     return text
 
-
+@app.route('/sort', methods=['GET'])
+def sort():
+    #r = os.popen('./test/cpp_backend sort'.format(arg1, arg2))
+    #text = r.read()
+    #r.close()
+    text = [
+    { '数据量': '10', '访问用户': 1393, '下单用户': 1093},
+    { '数据量': '100', '访问用户': 3530, '下单用户': 3230},
+    { '数据量': '1000', '访问用户': 2923, '下单用户': 2623},
+    { '数据量': '10000', '访问用户': 1723, '下单用户': 1423},
+    { '数据量': '20000', '访问用户': 3792, '下单用户': 3492},
+    { '数据量': '50000', '访问用户': 4593, '下单用户': 4293}
+    ]
+    return json.dumps({"result": text})
 
 
 def get_list():

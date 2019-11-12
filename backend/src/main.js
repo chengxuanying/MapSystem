@@ -1,5 +1,5 @@
 import Vue from 'vue'
-
+import VCharts from 'v-charts'
 //import './element/index.css'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
@@ -10,6 +10,7 @@ import router from './router'
 
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
+Vue.use(VCharts);
 
 
 new Vue({
