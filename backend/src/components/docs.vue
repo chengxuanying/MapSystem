@@ -25,16 +25,26 @@
                 <p>我们的业务层和计算层之间实现了负载均衡。
                 </p>
                 <p>我们的展示层，业务层、计算层，对外提供端对端的服务。</p>
-
-
+            
             </div>
-
 
         </el-tab-pane>
 
         <el-tab-pane label="前端">
             <div style="margin-left: 30px;">
-                前端
+                <h2>前端</h2>
+                <h3>前端图</h3>
+                <el-image src="dist/qd.jpg" fit="contain" style="width: 80%;"></el-image>
+
+                <p>前端是在Vue框架下搭建的，通过vue和一些原生代码对html，css，js实现管理，产生前端页面并和交互。</p>
+
+                <p>我们引入了element UI中的元素并进行元素布局，保证实用性的同时增加了美观和用户交互，提高了用户体验 </p>
+
+                <p>我们使用了vue-router进行路由管理，保证页面之间的联系</p>
+
+                <p>我们使用了VCharts进行数据处理，使得数据可视化，简洁美观</p>
+
+                <p>我们使用了axios实现后台访问后端接口，进行数据传递及计算</p>
             </div>
 
         </el-tab-pane>
