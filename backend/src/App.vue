@@ -9,7 +9,7 @@
                     <el-header>
                         <el-menu :default-active="activeIndex" class="el-menu-demo" mode="horizontal" router>
                             <el-menu-item index="/home"><i class="el-icon-place"></i>Mapsystem</el-menu-item>
-                            <el-menu-item index="/retrieve">数据分析</el-menu-item>
+                            <el-menu-item index="/retrieve">数据检索</el-menu-item>
                             <el-menu-item index="/sort">排序算法分析</el-menu-item>
                             <el-menu-item index="/docs">项目文档</el-menu-item>
                         </el-menu>

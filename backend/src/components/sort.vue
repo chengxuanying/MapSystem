@@ -5,7 +5,7 @@
                 <h2> 算法对比 </h2>
                 <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
                 <el-steps :space="150" :active="0" finish-status="success">
-                    <el-step title="等待中"></el-step>
+                    <el-step title="等待评测"></el-step>
                     <el-step title="快速排序"></el-step>
                     <el-step title="桶排序"></el-step>
                     <el-step title="堆排序"></el-step>
@@ -38,7 +38,7 @@
 
                 <el-col :span="16">
                     <el-col :span="11">
-                        <el-button type="primary" icon="el-icon-switch-button" class="margin_down">运行全部</el-button>
+                        <el-button type="primary" icon="el-icon-switch-button" class="margin_down">评测排序算法</el-button>
                     </el-col>
                 </el-col>
 
