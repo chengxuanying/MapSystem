@@ -1,16 +1,17 @@
 <template>
     <el-container direction="vertical">
+        <el-badge :value="count" class="item">
         <el-input placeholder="请输入内容" v-model="input3" class="input-with-select search-margin">
             <el-select v-model="select" slot="prepend" placeholder="请选择">
                 <el-option label="LinkID" value="linkid"></el-option>
                 <el-option label="道路名称" value="name"></el-option>
                 <el-option label="岔路数量" value="chalu"></el-option>
                 <el-option label="道路番号" value="fanhao"></el-option>
-            </el-select>
+            </el-select> 
             <el-button slot="append" icon="el-icon-search" @click="search"></el-button>
             <el-button slot="append" @click="nosearch">取消搜索</el-button>
         </el-input>
-
+        </el-badge>
         <el-table
                 :data="tableData"
                 style="width: 100%"
@@ -70,10 +71,10 @@
             return {
                 tableData: [],
                 fullscreenLoading: false,
-
                 input3: '',
                 select: '',
                 seen: true,
+                count:0,
             }
         },
         created() {
@@ -117,6 +118,8 @@
 
                 axios.get(url, {}).then(function (res) {
                     self.tableData = res.data.result;
+                    //console.log(res.data);
+                    self.count=res.data.tot;
                 }).catch(function (error) {
                     console.log(error);
                 });
@@ -156,6 +159,8 @@
 
                 axios.get(url, {}).then(function (res) {
                     self.tableData = res.data.result;
+                    self.count=res.data.cnt;
+                    console.log(res.data);
 
                 }).catch(function (error) {
                     console.log(error);
@@ -188,4 +193,8 @@
     .input-with-select .el-input-group__prepend {
         background-color: #fff;
     }
+    .item {
+  margin-top: 10px;
+  margin-right: 40px;
+}
 </style>

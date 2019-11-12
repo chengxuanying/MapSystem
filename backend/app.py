@@ -33,7 +33,7 @@ def get_tot():
 def get_page(page_size, page):
     start = (page - 1 ) * page_size
     end = page * page_size
-    return json.dumps({"result": database['result'][start: end]})
+    return json.dumps({"result": database['result'][start: end], "tot": database['cnt']})
 
 @app.route('/retrieve/sort/<string:column>/<string:order>', methods=['GET'])
 def sort_page(column, order):
