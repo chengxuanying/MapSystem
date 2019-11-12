@@ -34,10 +34,10 @@
                 @size-change="handleSizeChange"
                 @current-change="handleCurrentChange"
                 :current-page="currentPage4"
-                :page-sizes="[100, 200, 300, 400]"
-                :page-size="100"
+                :page-size="15"
+                :page-sizes="[10, 15, 20, 30, 40]"
                 layout="total, sizes, prev, pager, next, jumper"
-                :total="400"
+                :total="total"
                 class="nav-margin">
         </el-pagination>
 
@@ -56,13 +56,51 @@
         },
         created() {
             var self = this;
-            axios.get('http://127.0.0.1:5000/retrieve/test', {       // 还可以直接把参数拼接在url后边
+
+
+            // axios.get('http://127.0.0.1:5000/retrieve/test', {
+            // }).then(function (res) {
+            //     self.tableData = res.data.result;
+            // }).catch(function (error) {
+            //     console.log(error);
+            // });
+
+
+            axios.get('http://127.0.0.1:5000/retrieve/tot', {
             }).then(function (res) {
-                self.tableData = res.data.result;
+                self.total = res.data.tot;
+                console.log(self.total);
             }).catch(function (error) {
                 console.log(error);
             });
 
+            this.page_size = 15;
+            this.cur_page = 1;
+
+
+            self.handleCurrentChange(1);
+
+        }, methods: {
+            handleSizeChange(val) {
+              this.page_size = val;
+              this.handleCurrentChange(this.cur_page);
+
+            },
+            handleCurrentChange(val) {
+              console.log(123218)
+              this.cur_page = val;
+
+              var self = this;
+              var page_size = self.page_size;
+              var url = `http://127.0.0.1:5000/retrieve/page_size/${page_size}/page/${val}`;
+
+              axios.get(url, {
+              }).then(function (res) {
+                  self.tableData = res.data.result;
+              }).catch(function (error) {
+                  console.log(error);
+              });
+            }
         }
     }
 </script>
