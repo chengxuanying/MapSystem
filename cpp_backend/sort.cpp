@@ -6,19 +6,19 @@
 #include "record.h"
 #include "retrieval.h"
 
-bool smaller_by_name(class Record *a, class Record *b, bool reversed) {
+inline bool smaller_by_name(class Record *a, class Record *b, bool reversed) {
     return !reversed == a->getname() < b->getname();
 }
 
-bool smaller_by_chalu(class Record *a, class Record *b, bool reversed) {
+inline bool smaller_by_chalu(class Record *a, class Record *b, bool reversed) {
     return !reversed == a->getchalu() < b->getchalu();
 }
 
-bool smaller_by_fanhao(class Record *a, class Record *b, bool reversed) {
+inline bool smaller_by_fanhao(class Record *a, class Record *b, bool reversed) {
     return !reversed == a->getfanhao() < b->getfanhao();
 }
 
-bool smaller_by_linkid(class Record *a, class Record *b, bool reversed) {
+inline bool smaller_by_linkid(class Record *a, class Record *b, bool reversed) {
     return !reversed == a->getid() < b->getid();
 }
 
@@ -67,6 +67,25 @@ void bubble_sort(class Record **ptr, int cnt,
         }
     }
 
+}
+
+
+void insertSort(class Record **ptr, int cnt,
+                bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                bool reversed) {]
+    class Record *temp;
+    int j;
+
+    for (int i = 1; i < cnt; i++) {
+        if (ptr[i]->getid() < ptr[i-1]->getid())
+        {
+            temp = ptr[i];
+            for (j = i - 1; j >= 0 && ptr[j]->getid() > temp->getid(); j--)
+                ptr[j + 1] = ptr[j];
+            ptr[j + 1] = temp;
+        }
+
+    }
 }
 
 void sort_my_record_by_name(class Record **ptr, int cnt, bool reversed) {
