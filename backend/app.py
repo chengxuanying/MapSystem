@@ -16,7 +16,6 @@ def test():
     r = os.popen('./test/cpp_backend sample')
     text = r.read()
     r.close()
-    print(text)
     return text
     
 

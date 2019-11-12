@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <el-row :gutter="20">
+    <div id="app">
+        <el-row :gutter="20">
             <el-col :span="4">
                 <div class="grid-content bg-purple"></div>
             </el-col>
@@ -23,23 +23,22 @@
                         <el-alert
                                 title="Made with love by 3 boys."
                                 type="info"
-                                close-text=" ">
+                                close-text=" "
+                                class="footer-margin">
                         </el-alert>
-                   </el-footer>
+                    </el-footer>
 
                 </el-container>
             </el-col>
             <el-col :span="4">
                 <div class="grid-content bg-purple"></div>
             </el-col>
-      </el-row>
-  </div>
+        </el-row>
+    </div>
 </template>
 
 <script>
-export default {
-
-}
+    export default {}
 </script>
 
 <style>
@@ -53,16 +52,28 @@ export default {
         /*background: #d3dce6;*/
     }
 
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 30px;
-}
+    #app {
+        font-family: 'Avenir', Helvetica, Arial, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+        margin-top: 30px;
+    }
 
-.margin{
-  margin-top: 60px;
-}
+    .margin {
+        margin-top: 60px;
+    }
+
+    .el-header {
+        padding: 0px;
+    }
+
+    .el-footer {
+        padding: 0px;
+    }
+
+    .footer-margin {
+        margin-bottom: 100px;
+    }
 </style>
