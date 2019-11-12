@@ -8,9 +8,9 @@
 
 inline bool smaller_by_name(class Record *a, class Record *b, bool reversed) {
     if (reversed){
-        return a->getname() > b->getname();
+        return *a->getname() > *b->getname();
     } else{
-        return a->getname() < b->getname();
+        return *a->getname() < *b->getname();
     }
 }
 
@@ -110,22 +110,36 @@ void stdSort(class Record **ptr, int cnt,
     sort(ptr, ptr + cnt, bind(is_smaller, _1, _2, reversed));
 }
 
-void sort_my_record_by_name(class Record **ptr, int cnt, bool reversed) {
-    stdSort(ptr, cnt, smaller_by_name, reversed);
-    print_rows(ptrz);
+/*
+ *
+ * 业务
+ *
+ */
+
+void sort_my_record_by_name(class Record **ptr, int cnt, bool reversed,
+                            void (*sort_func)(class Record **ptr, int cnt,
+                                            bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                                            bool reversed)) {
+    sort_func(ptr, cnt, smaller_by_name, reversed);
 }
 
-void sort_my_record_by_chalu(class Record **ptr, int cnt, bool reversed) {
-    qSort(ptr, cnt, smaller_by_chalu, reversed);
-    print_rows(ptr, cnt);
+void sort_my_record_by_chalu(class Record **ptr, int cnt, bool reversed,
+                             void (*sort_func)(class Record **ptr, int cnt,
+                                               bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                                               bool reversed)) {
+    sort_func(ptr, cnt, smaller_by_chalu, reversed);
 }
 
-void sort_my_record_by_fanhao(class Record **ptr, int cnt, bool reversed) {
-    qSort(ptr, cnt, smaller_by_fanhao, reversed);
-    print_rows(ptr, cnt);
+void sort_my_record_by_fanhao(class Record **ptr, int cnt, bool reversed,
+                              void (*sort_func)(class Record **ptr, int cnt,
+                                                bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                                                bool reversed)) {
+    sort_func(ptr, cnt, smaller_by_fanhao, reversed);
 }
 
-void sort_my_record_by_linkid(class Record **ptr, int cnt, bool reversed) {
-    stdSort(ptr, cnt, smaller_by_linkid, reversed);
-    print_rows(ptr, cnt);
+void sort_my_record_by_linkid(class Record **ptr, int cnt, bool reversed,
+                              void (*sort_func)(class Record **ptr, int cnt,
+                                                bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                                                bool reversed)) {
+    sort_func(ptr, cnt, smaller_by_linkid, reversed);
 }

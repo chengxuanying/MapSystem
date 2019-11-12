@@ -18,7 +18,13 @@ bool smaller_by_fanhao(class Record *a, class Record *b, bool reversed = false);
 
 bool smaller_by_linkid(class Record *a, class Record *b, bool reversed = false);
 
-void bubble_sort(class Record **ptr, int cnt, bool (*is_smaller)(class Record *a, class Record *b));
+void qSort(class Record **ptr, int cnt,
+           bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+           bool reversed);
+
+void bubble_sort(class Record **ptr, int cnt,
+                 bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                 bool reversed);
 
 void insertSort(class Record **ptr, int cnt,
                 bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
@@ -28,10 +34,22 @@ void stdSort(class Record **ptr, int cnt,
              bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
              bool reversed);
 
-void sort_my_record_by_name(class Record **ptr, int cnt, bool reversed = false);
+void sort_my_record_by_name(class Record **ptr, int cnt, bool reversed = false,
+                            void (*sort_func)(class Record **ptr, int cnt,
+                                              bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                                              bool reversed) = stdSort);
 
-void sort_my_record_by_chalu(class Record **ptr, int cnt, bool reversed);
+void sort_my_record_by_chalu(class Record **ptr, int cnt, bool reversed = false,
+                             void (*sort_func)(class Record **ptr, int cnt,
+                                               bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                                               bool reversed) = stdSort);
 
-void sort_my_record_by_fanhao(class Record **ptr, int cnt, bool reversed);
+void sort_my_record_by_fanhao(class Record **ptr, int cnt, bool reversed = false,
+                              void (*sort_func)(class Record **ptr, int cnt,
+                                                bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                                                bool reversed) = stdSort);
 
-void sort_my_record_by_linkid(class Record **ptr, int cnt, bool reversed);
+void sort_my_record_by_linkid(class Record **ptr, int cnt, bool reversed = false,
+                              void (*sort_func)(class Record **ptr, int cnt,
+                                                bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                                                bool reversed) = stdSort);

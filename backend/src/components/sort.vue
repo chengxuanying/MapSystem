@@ -4,13 +4,16 @@
             <el-main>
                 <h2> 算法对比 </h2>
                 <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
-                <el-steps :space="150" :active="0" finish-status="success">
+                <el-steps :space="100" :active="0" finish-status="success">
                     <el-step title="等待评测"></el-step>
+                    <el-step title="改进方法1"></el-step>
+                    <el-step title="STD排序"></el-step>
                     <el-step title="快速排序"></el-step>
                     <el-step title="桶排序"></el-step>
                     <el-step title="堆排序"></el-step>
                     <el-step title="插入排序"></el-step>
                     <el-step title="冒泡排序"></el-step>
+
                 </el-steps>
 
             </el-main>

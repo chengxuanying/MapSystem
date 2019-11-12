@@ -5,7 +5,6 @@
 #include "retrieval.h"
 #include "sort.h"
 
-
 int main(int argc, char **argv) {
 
     class Record rows[MAX], *ptr[MAX];
@@ -57,12 +56,56 @@ int main(int argc, char **argv) {
             // 4 xuan 1
             if (strcmp("name", argv[2]) == 0) {
                 sort_my_record_by_name(ptr, cnt, reversed);
+                print_rows(ptr, cnt);
+
             } else if (strcmp("chalu", argv[2]) == 0) {
                 sort_my_record_by_chalu(ptr, cnt, reversed);
+                print_rows(ptr, cnt);
+
             } else if (strcmp("fanhao", argv[2]) == 0) {
                 sort_my_record_by_fanhao(ptr, cnt, reversed);
+                print_rows(ptr, cnt);
+
             } else if (strcmp("linkid", argv[2]) == 0) {
                 sort_my_record_by_linkid(ptr, cnt, reversed);
+                print_rows(ptr, cnt);
+
+            } else {
+                goto help;
+            }
+
+        /*
+         *
+         * benchmark
+         *
+         */
+        } else if (strcmp("benchmark", argv[1]) == 0) {
+            void (*sort_func)(class Record **ptr, int cnt,
+                              bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                              bool reversed);
+
+            // up or down
+            if (strcmp("stdsort", argv[2]) == 0) {
+                sort_func = stdSort;
+            } else if (strcmp("qsort", argv[2]) == 0) {
+                sort_func = qSort;
+            } else if (strcmp("insertsort", argv[2]) == 0) {
+                sort_func = insertSort;
+            } else if (strcmp("bubblesort", argv[2]) == 0) {
+                sort_func = bubble_sort;
+            } else {
+                goto help;
+            }
+
+            // 4 xuan 1
+            if (strcmp("name", argv[3]) == 0) {
+                sort_my_record_by_name(ptr, cnt, false, sort_func);
+            } else if (strcmp("chalu", argv[3]) == 0) {
+                sort_my_record_by_chalu(ptr, cnt, false, sort_func);
+            } else if (strcmp("fanhao", argv[3]) == 0) {
+                sort_my_record_by_fanhao(ptr, cnt, false, sort_func);
+            } else if (strcmp("linkid", argv[3]) == 0) {
+                sort_my_record_by_linkid(ptr, cnt, false, sort_func);
             } else {
                 goto help;
             }
@@ -88,6 +131,10 @@ int main(int argc, char **argv) {
         cout << "./cpp_backend sort fanhao up/down 根据番号排序" << endl;
         cout << "./cpp_backend sort linkid up/down 根据linkid排序" << endl;
 
+        cout << "./cpp_backend benchmark stdsort name/chalu/fanhao/linkid" << endl;
+        cout << "./cpp_backend benchmark qsort name/chalu/fanhao/linkid" << endl;
+        cout << "./cpp_backend benchmark insertsort name/chalu/fanhao/linkid" << endl;
+        cout << "./cpp_backend benchmark bubblesort name/chalu/fanhao/linkid" << endl;
     }
 
 

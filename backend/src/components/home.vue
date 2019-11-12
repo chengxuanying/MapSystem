@@ -1,7 +1,7 @@
 <template>
 
     <el-container direction="vertical">
-        <el-carousel height="450px" class="margin_down2">
+        <el-carousel  class="margin_down2">
             <el-carousel-item>
                 <!--el-carousel-item v-for="item in photos" :key="item">
                     <h3 class="small">{{ item }}</h3>
@@ -12,13 +12,13 @@
                 <!--el-carousel-item v-for="item in photos" :key="item">
                     <h3 class="small">{{ item }}</h3>
                 </el-carousel-item-->
-                <el-image src="dist/IMG_5976 3.jpg" class="carousel_image_type" fit="fill"></el-image>
+                <el-image src="dist/IMG_5976 3.jpg" class="carousel_image_type" fit="contain"></el-image>
             </el-carousel-item>
  <el-carousel-item>
                 <!--el-carousel-item v-for="item in photos" :key="item">
                     <h3 class="small">{{ item }}</h3>
                 </el-carousel-item-->
-                <el-image src="dist/IMG_5976 4.jpg" class="carousel_image_type" fit="fill"></el-image>
+                <el-image src="dist/IMG_5976 4.jpg" class="carousel_image_type" fit="contain"></el-image>
             </el-carousel-item>
         </el-carousel>
 
