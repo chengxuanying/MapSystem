@@ -7,19 +7,35 @@
 #include "retrieval.h"
 
 inline bool smaller_by_name(class Record *a, class Record *b, bool reversed) {
-    return !reversed == a->getname() < b->getname();
+    if (reversed){
+        return a->getname() > b->getname();
+    } else{
+        return a->getname() < b->getname();
+    }
 }
 
 inline bool smaller_by_chalu(class Record *a, class Record *b, bool reversed) {
-    return !reversed == a->getchalu() < b->getchalu();
+    if (reversed){
+        return a->getchalu() > b->getchalu();
+    } else{
+        return a->getchalu() < b->getchalu();
+    }
 }
 
 inline bool smaller_by_fanhao(class Record *a, class Record *b, bool reversed) {
-    return !reversed == a->getfanhao() < b->getfanhao();
+    if (reversed){
+        return a->getfanhao() > b->getfanhao();
+    } else{
+        return a->getfanhao() < b->getfanhao();
+    }
 }
 
 inline bool smaller_by_linkid(class Record *a, class Record *b, bool reversed) {
-    return !reversed == a->getid() < b->getid();
+    if (reversed){
+        return a->getid() > b->getid();
+    } else{
+        return a->getid() < b->getid();
+    }
 }
 
 int partition(class Record **vi, int low, int up,
@@ -72,15 +88,15 @@ void bubble_sort(class Record **ptr, int cnt,
 
 void insertSort(class Record **ptr, int cnt,
                 bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
-                bool reversed) {]
+                bool reversed) {
+
     class Record *temp;
     int j;
 
     for (int i = 1; i < cnt; i++) {
-        if (ptr[i]->getid() < ptr[i-1]->getid())
-        {
+        if (is_smaller(ptr[i], ptr[i - 1], reversed)) {
             temp = ptr[i];
-            for (j = i - 1; j >= 0 && ptr[j]->getid() > temp->getid(); j--)
+            for (j = i - 1; j >= 0 && is_smaller(temp, ptr[j], reversed); j--)
                 ptr[j + 1] = ptr[j];
             ptr[j + 1] = temp;
         }
@@ -88,9 +104,15 @@ void insertSort(class Record **ptr, int cnt,
     }
 }
 
+void stdSort(class Record **ptr, int cnt,
+                bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                bool reversed) {
+    sort(ptr, ptr + cnt, bind(is_smaller, _1, _2, reversed));
+}
+
 void sort_my_record_by_name(class Record **ptr, int cnt, bool reversed) {
-    qSort(ptr, cnt, smaller_by_name, reversed);
-    print_rows(ptr, cnt);
+    stdSort(ptr, cnt, smaller_by_name, reversed);
+    print_rows(ptrz);
 }
 
 void sort_my_record_by_chalu(class Record **ptr, int cnt, bool reversed) {
@@ -104,6 +126,6 @@ void sort_my_record_by_fanhao(class Record **ptr, int cnt, bool reversed) {
 }
 
 void sort_my_record_by_linkid(class Record **ptr, int cnt, bool reversed) {
-    qSort(ptr, cnt, smaller_by_linkid, reversed);
+    stdSort(ptr, cnt, smaller_by_linkid, reversed);
     print_rows(ptr, cnt);
 }

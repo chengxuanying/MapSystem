@@ -10,6 +10,7 @@
 #include <iostream>
 #include <cstdio>
 #include <iconv.h>
+#include <algorithm>
 
 #define MAX 64000
 
@@ -17,3 +18,4 @@
 using json = nlohmann::json;
 
 using namespace std;
+using namespace std::placeholders;
