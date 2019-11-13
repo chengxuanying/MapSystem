@@ -3,7 +3,7 @@ import os
 import json
 import time
 import locale
-locale.setlocale(locale.LC_ALL,'zh_CN.UTF-8')
+locale.setlocale(locale.LC_ALL,'en_US.UTF-8')
 
 app_dir = "/mapsystem/backend/cpp_backend"
 # app_dir = "../cpp_backend/my_cpp_backend"
