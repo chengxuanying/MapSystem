@@ -6,26 +6,26 @@
                 <!--el-carousel-item v-for="item in photos" :key="item">
                     <h3 class="small">{{ item }}</h3>
                 </el-carousel-item-->
-                <el-image src="dist/17.jpg" class="carousel_image_type" fit="contain"></el-image>
+                <el-image src="src/assets/17.jpg" class="carousel_image_type" fit="contain"></el-image>
             </el-carousel-item>
             <el-carousel-item>
                 <!--el-carousel-item v-for="item in photos" :key="item">
                     <h3 class="small">{{ item }}</h3>
                 </el-carousel-item-->
-                <el-image src="dist/16.jpg" class="carousel_image_type" fit="contain"></el-image>
+                <el-image src="src/assets/16.jpg" class="carousel_image_type" fit="contain"></el-image>
             </el-carousel-item>
  <el-carousel-item>
                 <!--el-carousel-item v-for="item in photos" :key="item">
                     <h3 class="small">{{ item }}</h3>
                 </el-carousel-item-->
-                <el-image src="dist/15.jpg" class="carousel_image_type" fit="contain"></el-image>
+                <el-image src="src/assets/15.jpg" class="carousel_image_type" fit="contain"></el-image>
             </el-carousel-item>
         </el-carousel>
 
         <el-row type="flex" justify="space-around">
             <el-col :span="6">
                 <el-card :body-style="{ padding: '5px' }" >
-                    <img src="dist/8.png"
+                    <img src="src/assets/8.png"
                          class="image">
                     <div style="padding: 18px; text-align: center;">
                         <span>低耦合设计</span>
@@ -34,7 +34,7 @@
             </el-col>
             <el-col :span="6">
                 <el-card :body-style="{ padding: '1px' }">
-                   <img src="dist/9.png"
+                   <img src="src/assets/9.png"
                          class="image">
                     <div style="padding: 22px; text-align: center;">
                         <span>可视化设计</span>
@@ -43,7 +43,7 @@
             </el-col>
             <el-col :span="6">
                 <el-card :body-style="{ padding: '2px' }" >
-                   <img src="dist/10.png"
+                   <img src="src/assets/10.png"
                          class="image">
                     <div style="padding: 20px; text-align: center;">
                         <span>高可用服务</span>
