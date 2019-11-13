@@ -13,4 +13,4 @@ RUN apt-get install -y python3 python3-pip
 RUN pip3 install flask
 
 EXPOSE 5000
-CMD ["bash", "first.sh"]
+CMD ["python3", "app.py"]
