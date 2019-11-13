@@ -24,16 +24,16 @@
 
         <el-row type="flex" justify="space-around">
             <el-col :span="6">
-                <el-card :body-style="{ padding: '0px' }" shadow="never">
+                <el-card :body-style="{ padding: '5px' }" >
                     <img src="dist/8.png"
                          class="image">
-                    <div style="padding: 10px; text-align: center;">
+                    <div style="padding: 18px; text-align: center;">
                         <span>低耦合设计</span>
                     </div>
                 </el-card>
             </el-col>
             <el-col :span="6">
-                <el-card :body-style="{ padding: '0px' }" shadow="never">
+                <el-card :body-style="{ padding: '1px' }">
                    <img src="dist/9.png"
                          class="image">
                     <div style="padding: 22px; text-align: center;">
@@ -42,7 +42,7 @@
                 </el-card>
             </el-col>
             <el-col :span="6">
-                <el-card :body-style="{ padding: '0px' }" shadow="never">
+                <el-card :body-style="{ padding: '2px' }" >
                    <img src="dist/10.png"
                          class="image">
                     <div style="padding: 20px; text-align: center;">
