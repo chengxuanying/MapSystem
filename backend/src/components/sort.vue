@@ -2,9 +2,9 @@
     <el-container direction='vertical'>
         <h2> 算法对比 </h2>
         <el-tabs v-model="activeName" @tab-click="handleClick">
-            <el-tab-pane label="linkid" name="linkid">
+            <el-tab-pane label="LinkID" name="linkid">
                 <h3>排序关键字:linkid</h3>
-                        
+
                 <el-container>
                     <el-main>
                         <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
@@ -24,9 +24,9 @@
                             &nbsp;
                         </el-col>
                         <el-col :span="18">
-                            <el-containter>
-                                <ve-line :data="chartData" :settings="chartSettings" ref="chart1"></ve-line>
-                            </el-containter>
+                            <!--                            <el-containter>-->
+                            <ve-line :data="chartData1" :settings="chartSettings" ref="chart1"></ve-line>
+                            <!--                            </el-containter>-->
                         </el-col>
                         <el-col :span="1">
                             &nbsp;
@@ -39,10 +39,10 @@
                         <el-col :span="16">
                             <el-col :span="11">
                                 <el-button type="primary"
-                                        icon="el-icon-switch-button"
-                                        class="margin_down"
-                                        @click="get_linkid"
-                                        :loading="linkid_load">
+                                           icon="el-icon-switch-button"
+                                           class="margin_down"
+                                           @click="get_linkid"
+                                           :loading="linkid_load">
                                     评测排序算法
                                 </el-button>
                             </el-col>
@@ -58,8 +58,9 @@
 
 
             </el-tab-pane>
-            <el-tab-pane label="name" name="name">
-                <h3> 排序关键字:name</h3>
+
+            <el-tab-pane label="道路名称" name="name">
+                <h3> 排序关键字: 道路名称</h3>
                 <el-container>
                     <el-main>
                         <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
@@ -80,7 +81,7 @@
                         </el-col>
                         <el-col :span="18">
                             <el-containter>
-                                <ve-line :data="chartData" :settings="chartSettings" ref="chart2"></ve-line>
+                                <ve-line :data="chartData2" :settings="chartSettings" ref="chart2"></ve-line>
                             </el-containter>
                         </el-col>
                         <el-col :span="1">
@@ -94,10 +95,10 @@
                         <el-col :span="16">
                             <el-col :span="11">
                                 <el-button type="primary"
-                                        icon="el-icon-switch-button"
-                                        class="margin_down"
-                                        @click="get_linkid"
-                                        :loading="linkid_load">
+                                           icon="el-icon-switch-button"
+                                           class="margin_down"
+                                           @click="get_name"
+                                           :loading="linkid_load">
                                     评测排序算法
                                 </el-button>
                             </el-col>
@@ -112,8 +113,8 @@
                 </el-container>
             </el-tab-pane>
 
-            <el-tab-pane label="chalu" name="chalu">
-                <h3>排序关键字:chalu</h3>
+            <el-tab-pane label="岔路数量" name="chalu">
+                <h3>排序关键字: 岔路数量</h3>
                 <el-container>
                     <el-main>
                         <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
@@ -134,7 +135,7 @@
                         </el-col>
                         <el-col :span="18">
                             <el-containter>
-                                <ve-line :data="chartData" :settings="chartSettings" ref="chart3"></ve-line>
+                                <ve-line :data="chartData3" :settings="chartSettings" ref="chart3"></ve-line>
                             </el-containter>
                         </el-col>
                         <el-col :span="1">
@@ -148,10 +149,10 @@
                         <el-col :span="16">
                             <el-col :span="11">
                                 <el-button type="primary"
-                                        icon="el-icon-switch-button"
-                                        class="margin_down"
-                                        @click="get_linkid"
-                                        :loading="linkid_load">
+                                           icon="el-icon-switch-button"
+                                           class="margin_down"
+                                           @click="get_chalu"
+                                           :loading="linkid_load">
                                     评测排序算法
                                 </el-button>
                             </el-col>
@@ -166,8 +167,8 @@
                 </el-container>
             </el-tab-pane>
 
-            <el-tab-pane label="fanhao" name="fanhao">
-                <h3> 排序关键字:fanhao</h3>
+            <el-tab-pane label="道路番号" name="fanhao">
+                <h3> 排序关键字:道路番号</h3>
                 <el-container>
                     <el-main>
                         <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
@@ -188,7 +189,7 @@
                         </el-col>
                         <el-col :span="18">
                             <el-containter>
-                                <ve-line :data="chartData" :settings="chartSettings" ref="chart4"></ve-line>
+                                <ve-line :data="chartData4" :settings="chartSettings" ref="chart4"></ve-line>
                             </el-containter>
                         </el-col>
                         <el-col :span="1">
@@ -202,10 +203,10 @@
                         <el-col :span="16">
                             <el-col :span="11">
                                 <el-button type="primary"
-                                        icon="el-icon-switch-button"
-                                        class="margin_down"
-                                        @click="get_linkid"
-                                        :loading="linkid_load">
+                                           icon="el-icon-switch-button"
+                                           class="margin_down"
+                                           @click="get_fanhao"
+                                           :loading="linkid_load">
                                     评测排序算法
                                 </el-button>
                             </el-col>
@@ -239,10 +240,23 @@
                 dimension: ['n']
             }
             return {
-                chartData: {
+                chartData1: {
                     columns: ['n', 'our', 'stdsort', 'qsort', 'bucketsort', 'heapsort', 'insertsort', 'bubblesort'],
                     rows: [{'n': '0', 'our': 0}]
                 },
+                chartData2: {
+                    columns: ['n', 'our', 'stdsort', 'qsort', 'bucketsort', 'heapsort', 'insertsort', 'bubblesort'],
+                    rows: [{'n': '0', 'our': 0}]
+                },
+                chartData3: {
+                    columns: ['n', 'our', 'stdsort', 'qsort', 'bucketsort', 'heapsort', 'insertsort', 'bubblesort'],
+                    rows: [{'n': '0', 'our': 0}]
+                },
+                chartData4: {
+                    columns: ['n', 'our', 'stdsort', 'qsort', 'bucketsort', 'heapsort', 'insertsort', 'bubblesort'],
+                    rows: [{'n': '0', 'our': 0}]
+                },
+
                 myactive: 0,
                 linkid_load: false,
                 activeName: 'linkid'
@@ -255,12 +269,45 @@
                 var url = `http://127.0.0.1:5000/sort/linkid`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
-                    self.next_point(12 * 7);
+                    self.next_point(12 * 7, self.chartData1);
                 }).catch(function (error) {
                     console.log(error);
                 });
             },
-            next_point(n) {
+            get_name() {
+                var self = this;
+                self.myactive = 0;
+                var url = `http://127.0.0.1:5000/sort/name`;
+                axios.get(url).then(function (res) {
+                    self.linkid_load = true;
+                    self.next_point(12 * 7, self.chartData2);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            },
+            get_chalu() {
+                var self = this;
+                self.myactive = 0;
+                var url = `http://127.0.0.1:5000/sort/chalu`;
+                axios.get(url).then(function (res) {
+                    self.linkid_load = true;
+                    self.next_point(12 * 7, self.chartData3);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            },
+            get_fanhao() {
+                var self = this;
+                self.myactive = 0;
+                var url = `http://127.0.0.1:5000/sort/fanhao`;
+                axios.get(url).then(function (res) {
+                    self.linkid_load = true;
+                    self.next_point(12 * 7, self.chartData4);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            },
+            next_point(n, chart_) {
                 var self = this;
                 if (n === 0) {
                     self.myactive += 1;
@@ -270,28 +317,30 @@
                 var url = `http://127.0.0.1:5000/sort/next`;
                 axios.get(url).then(function (res) {
                     // console.log(res.data.result);
-                    self.chartData.rows = res.data.result;
+                    chart_.rows = res.data.result;
                     if (n % 12 === 0) {
                         self.myactive += 1;
                     }
-                    self.next_point(n - 1);
+                    self.next_point(n - 1, chart_);
                 }).catch(function (error) {
                     console.log(error);
                 });
             },
-                  handleClick(tab, event) {
-                      var self = this;
-        console.log(tab, event);
-      },
+            handleClick(tab, event) {
+                var self = this;
+                console.log(tab, event);
+            },
         },
-  watch: {
-    activeName (v) {
-    var self = this;
-      self.$nextTick(_ => {
-         self.$refs[`chart${v}`].echarts.resize()
-      })
-    }
-  }
+        watch: {
+            activeName(v) {
+                this.$nextTick(_ => {
+                    this.$refs[`chart1`].echarts.resize();
+                    this.$refs[`chart2`].echarts.resize();
+                    this.$refs[`chart3`].echarts.resize();
+                    this.$refs[`chart4`].echarts.resize();
+                })
+            }
+        }
     }
 </script>
 <style>
