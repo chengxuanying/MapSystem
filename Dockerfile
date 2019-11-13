@@ -9,7 +9,7 @@ RUN pip3 install flask
 
 RUN apt-get install -y cmake build-essential
 RUN cd /mapsystem/cpp_backend
-RUN cmake
+RUN cmake CMakeLists.txt
 RUN make
 RUN cp cpp_backend ../backend
 
