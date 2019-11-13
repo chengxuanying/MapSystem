@@ -3,6 +3,8 @@ import os
 import json
 import time
 
+app_dir = "/mapsystem/backend/cpp_backend"
+
 app = Flask(__name__,
             static_url_path="",
             static_folder="dist")
@@ -20,7 +22,7 @@ database = None
 
 @app.route('/retrieve/test', methods=['GET'])
 def test():
-    r = os.popen('./cpp_backend sample')
+    r = os.popen('{} sample'.format(app_dir))
     text = r.read()
     r.close()
     return text
@@ -49,7 +51,7 @@ def sort_page(column, order):
         'descending': 'down',
     }
 
-    r = os.popen('./cpp_backend sort {} {}'.format(column, a[order]))
+    r = os.popen('{} sort {} {}'.format(app_dir, column, a[order]))
     text = r.read()
     r.close()
 
@@ -61,7 +63,7 @@ def sort_page(column, order):
 
 @app.route('/retrieve/<string:arg1>/<string:arg2>', methods=['GET'])
 def retrieve_something(arg1, arg2):
-    r = os.popen('./cpp_backend retrieve {} {}'.format(arg1, arg2))
+    r = os.popen('{} retrieve {} {}'.format(app_dir, arg1, arg2))
     text = r.read()
     r.close()
 
@@ -78,7 +80,7 @@ def mysort(col='linkid'):
         for i, n in enumerate(N):
             back[i]['n'] = str(n)
 
-            cmd = './cpp_backend benchmark {} {} {}'.format(method, col, n)
+            cmd = '{} benchmark {} {} {}'.format(app_dir, method, col, n)
             # print(cmd)
             r = os.popen(cmd)
             text = r.read()
@@ -105,10 +107,9 @@ def sort_next():
 
 
 def get_list():
-    r = os.popen('./cpp_backend list')
+    r = os.popen('{} list'.format(app_dir))
     text = r.read()
     r.close()
-    print(text)
     return text
 
 
