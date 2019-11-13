@@ -3,8 +3,8 @@ WORKDIR /mapsystem/backend
 
 COPY . /mapsystem
 
-RUN apt-get update && apt-get install -y python3
-RUN pip install flask
+RUN apt-get update && apt-get install -y python3 python3-pip
+RUN pip3 install flask
 
 
 RUN apt-get install -y cmake build-essential
