@@ -3,12 +3,12 @@
         <h2> 算法对比 </h2>
         <el-tabs v-model="activeName" @tab-click="handleClick">
             <el-tab-pane label="LinkID" name="linkid">
-                <h3>排序关键字:linkid</h3>
+                <h3>排序关键字: LinkID</h3>
 
                 <el-container>
                     <el-main>
                         <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
-                        <el-steps :space="100" :active="myactive" finish-status="success">
+                        <el-steps :space="100" :active="myactive[1]" finish-status="success">
                             <el-step title="等待评测"></el-step>
                             <el-step title="改进方法1"></el-step>
                             <el-step title="STD排序"></el-step>
@@ -64,7 +64,7 @@
                 <el-container>
                     <el-main>
                         <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
-                        <el-steps :space="100" :active="myactive" finish-status="success">
+                        <el-steps :space="100" :active="myactive[2]" finish-status="success">
                             <el-step title="等待评测"></el-step>
                             <el-step title="改进方法1"></el-step>
                             <el-step title="STD排序"></el-step>
@@ -118,7 +118,7 @@
                 <el-container>
                     <el-main>
                         <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
-                        <el-steps :space="100" :active="myactive" finish-status="success">
+                        <el-steps :space="100" :active="myactive[3]" finish-status="success">
                             <el-step title="等待评测"></el-step>
                             <el-step title="改进方法1"></el-step>
                             <el-step title="STD排序"></el-step>
@@ -168,11 +168,11 @@
             </el-tab-pane>
 
             <el-tab-pane label="道路番号" name="fanhao">
-                <h3> 排序关键字:道路番号</h3>
+                <h3> 排序关键字: 道路番号</h3>
                 <el-container>
                     <el-main>
                         <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
-                        <el-steps :space="100" :active="myactive" finish-status="success">
+                        <el-steps :space="100" :active="myactive[4]" finish-status="success">
                             <el-step title="等待评测"></el-step>
                             <el-step title="改进方法1"></el-step>
                             <el-step title="STD排序"></el-step>
@@ -256,8 +256,7 @@
                     columns: ['n', 'our', 'stdsort', 'qsort', 'bucketsort', 'heapsort', 'insertsort', 'bubblesort'],
                     rows: [{'n': '0', 'our': 0}]
                 },
-
-                myactive: 0,
+                myactive:[0,0,0,0,0],
                 linkid_load: false,
                 activeName: 'linkid'
             };
@@ -265,52 +264,52 @@
         methods: {
             get_linkid() {
                 var self = this;
-                self.myactive = 0;
+                self.$set(self.myactive, 1, 0);
                 var url = `http://127.0.0.1:5000/sort/linkid`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
-                    self.next_point(12 * 7, self.chartData1);
+                    self.next_point(12 * 7, self.chartData1, 1);
                 }).catch(function (error) {
                     console.log(error);
                 });
             },
             get_name() {
                 var self = this;
-                self.myactive = 0;
+                self.$set(self.myactive, 2, 0);
                 var url = `http://127.0.0.1:5000/sort/name`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
-                    self.next_point(12 * 7, self.chartData2);
+                    self.next_point(12 * 7, self.chartData2, 2);
                 }).catch(function (error) {
                     console.log(error);
                 });
             },
             get_chalu() {
                 var self = this;
-                self.myactive = 0;
+                self.$set(self.myactive, 3, 0);
                 var url = `http://127.0.0.1:5000/sort/chalu`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
-                    self.next_point(12 * 7, self.chartData3);
+                    self.next_point(12 * 7, self.chartData3, 3);
                 }).catch(function (error) {
                     console.log(error);
                 });
             },
             get_fanhao() {
                 var self = this;
-                self.myactive = 0;
+                self.$set(self.myactive, 4, 0);
                 var url = `http://127.0.0.1:5000/sort/fanhao`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
-                    self.next_point(12 * 7, self.chartData4);
+                    self.next_point(12 * 7, self.chartData4, 4);
                 }).catch(function (error) {
                     console.log(error);
                 });
             },
-            next_point(n, chart_) {
+            next_point(n, chart_, active) {
                 var self = this;
                 if (n === 0) {
-                    self.myactive += 1;
+                    self.$set(self.myactive, active, self.myactive[active]+1);
                     self.linkid_load = false;
                     return;
                 }
@@ -319,9 +318,9 @@
                     // console.log(res.data.result);
                     chart_.rows = res.data.result;
                     if (n % 12 === 0) {
-                        self.myactive += 1;
+                       self.$set(self.myactive, active, self.myactive[active]+1);
                     }
-                    self.next_point(n - 1, chart_);
+                    self.next_point(n - 1, chart_, active);
                 }).catch(function (error) {
                     console.log(error);
                 });
