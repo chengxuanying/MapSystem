@@ -20,7 +20,7 @@ database = None
 
 @app.route('/retrieve/test', methods=['GET'])
 def test():
-    r = os.popen('./test/cpp_backend sample')
+    r = os.popen('./cpp_backend sample')
     text = r.read()
     r.close()
     return text
@@ -49,7 +49,7 @@ def sort_page(column, order):
         'descending': 'down',
     }
 
-    r = os.popen('./test/cpp_backend sort {} {}'.format(column, a[order]))
+    r = os.popen('./cpp_backend sort {} {}'.format(column, a[order]))
     text = r.read()
     r.close()
 
@@ -61,7 +61,7 @@ def sort_page(column, order):
 
 @app.route('/retrieve/<string:arg1>/<string:arg2>', methods=['GET'])
 def retrieve_something(arg1, arg2):
-    r = os.popen('./test/cpp_backend retrieve {} {}'.format(arg1, arg2))
+    r = os.popen('./cpp_backend retrieve {} {}'.format(arg1, arg2))
     text = r.read()
     r.close()
 
@@ -74,13 +74,11 @@ def mysort(col='linkid'):
 
     back = [{} for i in range(len(N))]
 
-
-
     for j, method in enumerate(M):
         for i, n in enumerate(N):
             back[i]['n'] = str(n)
 
-            cmd = './test/cpp_backend benchmark {} {} {}'.format(method, col, n)
+            cmd = './cpp_backend benchmark {} {} {}'.format(method, col, n)
             # print(cmd)
             r = os.popen(cmd)
             text = r.read()
@@ -90,7 +88,6 @@ def mysort(col='linkid'):
             back[i][method] = int(round(text["time"]))
             if int(round(text["time"])) < 20 * 1000:
                 time.sleep(0.15)
-
 
             yield json.dumps({"result": back})
 
@@ -108,7 +105,7 @@ def sort_next():
 
 
 def get_list():
-    r = os.popen('./test/cpp_backend list')
+    r = os.popen('./cpp_backend list')
     text = r.read()
     r.close()
     return text
