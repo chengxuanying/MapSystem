@@ -1,4 +1,4 @@
-from flask import Flask, send_from_directory
+from flask import Flask, stream_with_context, Response, render_template
 import os
 import json
 
@@ -67,24 +67,40 @@ def retrieve_something(arg1, arg2):
     return text
 
 
-@app.route('/sort/<string:col>', methods=['GET'])
-def sort(col):
-    back = []
-    for i in [10,100,1000]:
-        back_m = {'n':i}
-        
-        for method in ['our','stdsort','qsort','bucketsort','heapsort','insertsort','bubblesort']:
-            cmd = './test/cpp_backend benchmark {} {} {}'.format(method, col, i)
-            print(cmd)
+def mysort(col='linkid'):
+    N = [10, 100, 500, 1000, 5000, 7000, 9000, 10000, 20000, 30000, 40000, 50000]
+    M = ['our', 'stdsort', 'qsort', 'bucketsort', 'heapsort', 'insertsort', 'bubblesort']
+
+    back = [{} for i in range(len(N))]
+
+
+
+    for j, method in enumerate(M):
+        for i, n in enumerate(N):
+            back[i]['n'] = str(n)
+
+            cmd = './test/cpp_backend benchmark {} {} {}'.format(method, col, n)
+            # print(cmd)
             r = os.popen(cmd)
             text = r.read()
             r.close()
-            
+
             text = json.loads(text)
-            back_m[method] = text["time"]
-#        print(back_m)
-        back.append(back_m)
-    return json.dumps({"result": back})
+            back[i][method] = int(round(text["time"]))
+
+            yield json.dumps({"result": back})
+
+
+@app.route('/sort/<string:col>', methods=['GET'])
+def sort(col):
+    global generator_obj
+    generator_obj = mysort(col)
+    return ""
+
+
+@app.route('/sort/next', methods=['GET'])
+def sort_next():
+    return next(generator_obj)
 
 
 def get_list():
