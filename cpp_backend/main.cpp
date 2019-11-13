@@ -88,7 +88,7 @@ int main(int argc, char **argv) {
                               bool reversed);
 
             // up or down
-            if (strcmp("our ", argv[2]) == 0) { // no implementation
+            if (strcmp("our", argv[2]) == 0) { // no implementation
                 sort_func = stdSort;
             } else if (strcmp("stdsort", argv[2]) == 0) {
                 sort_func = stdSort;
