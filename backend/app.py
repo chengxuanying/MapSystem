@@ -108,6 +108,7 @@ def get_list():
     r = os.popen('./cpp_backend list')
     text = r.read()
     r.close()
+    print(text)
     return text
 
 
