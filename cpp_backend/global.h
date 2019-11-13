@@ -11,6 +11,7 @@
 #include <cstdio>
 #include <iconv.h>
 #include <algorithm>
+#include <time.h>
 
 #define MAX 64000
 

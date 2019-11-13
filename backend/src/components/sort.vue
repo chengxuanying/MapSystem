@@ -3,6 +3,7 @@
         <el-container>
             <el-main>
                 <h2> 算法对比 </h2>
+                <h3> 排序关键字: LinkID </h3>
                 <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
                 <el-steps :space="100" :active="0" finish-status="success">
                     <el-step title="等待评测"></el-step>
