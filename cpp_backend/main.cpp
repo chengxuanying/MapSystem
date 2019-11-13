@@ -97,7 +97,7 @@ int main(int argc, char **argv) {
             } else if (strcmp("bucketsort", argv[2]) == 0) { // no implementation
                 sort_func = stdSort;
             } else if (strcmp("heapsort", argv[2]) == 0) { // no implementation
-                sort_func = stdSort;
+                sort_func = HeapSort;
             } else if (strcmp("insertsort", argv[2]) == 0) {
                 sort_func = insertSort;
             } else if (strcmp("bubblesort", argv[2]) == 0) {

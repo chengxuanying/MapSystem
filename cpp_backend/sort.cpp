@@ -7,33 +7,33 @@
 #include "retrieval.h"
 
 inline bool smaller_by_name(class Record *a, class Record *b, bool reversed) {
-    if (reversed){
+    if (reversed) {
         return *a->getname() > *b->getname();
-    } else{
+    } else {
         return *a->getname() < *b->getname();
     }
 }
 
 inline bool smaller_by_chalu(class Record *a, class Record *b, bool reversed) {
-    if (reversed){
+    if (reversed) {
         return a->getchalu() > b->getchalu();
-    } else{
+    } else {
         return a->getchalu() < b->getchalu();
     }
 }
 
 inline bool smaller_by_fanhao(class Record *a, class Record *b, bool reversed) {
-    if (reversed){
+    if (reversed) {
         return a->getfanhao() > b->getfanhao();
-    } else{
+    } else {
         return a->getfanhao() < b->getfanhao();
     }
 }
 
 inline bool smaller_by_linkid(class Record *a, class Record *b, bool reversed) {
-    if (reversed){
+    if (reversed) {
         return a->getid() > b->getid();
-    } else{
+    } else {
         return a->getid() < b->getid();
     }
 }
@@ -105,9 +105,43 @@ void insertSort(class Record **ptr, int cnt,
 }
 
 void stdSort(class Record **ptr, int cnt,
+             bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+             bool reversed) {
+    sort(ptr, ptr + cnt, bind(is_smaller, _1, _2, reversed));
+}
+
+void HeapAdjust(class Record **ptr, int cnt, int k,
                 bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
                 bool reversed) {
-    sort(ptr, ptr + cnt, bind(is_smaller, _1, _2, reversed));
+    Record *tmp = ptr[k];
+    int i = 2 * k + 1;
+    while (i < cnt) {
+        if (i + 1 < cnt && is_smaller(ptr[i + 1], ptr[i], reversed)) //选取最小的结点位置
+            ++i;
+        if (is_smaller(tmp, ptr[i], reversed)) //不用交换
+            break;
+        ptr[k] = ptr[i]; //交换值
+        k = i; //继续查找
+        i = 2 * k + 1;
+    }
+    ptr[k] = tmp;
+}
+
+void HeapSort(class Record **ptr, int cnt,
+              bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+              bool reversed) {
+
+    if (ptr == NULL || cnt <= 0)
+        return;
+
+    for (int i = cnt / 2 - 1; i >= 0; --i) {
+        HeapAdjust(ptr, cnt, i, is_smaller, reversed); //从第二层开始建堆
+    }
+
+    for (int i = cnt - 1; i >= 0; --i) {
+        std::swap(ptr[0], ptr[i]);
+        HeapAdjust(ptr, i, 0, is_smaller, reversed); //从顶点开始建堆, 忽略最后一个
+    }
 }
 
 /*
@@ -118,8 +152,8 @@ void stdSort(class Record **ptr, int cnt,
 
 void sort_my_record_by_name(class Record **ptr, int cnt, bool reversed,
                             void (*sort_func)(class Record **ptr, int cnt,
-                                            bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
-                                            bool reversed)) {
+                                              bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                                              bool reversed)) {
     sort_func(ptr, cnt, smaller_by_name, reversed);
 }
 
