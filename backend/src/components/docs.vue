@@ -84,6 +84,7 @@
                 <h2>计算端</h2>
 
                 <h3>类图</h3>
+                <el-image src="dist/cpp4.png" fit="contain" style="width: 40%;"></el-image>
 
                 <h3>算法流程图</h3>
                 <p>下图是我们的算法流程图。算法流程主要包含五部分，为V字形结构。</p>
@@ -97,11 +98,12 @@
                 <p>最后，程序根据具体业务确定附加操作，并执行附加操作。最后，程序将结构化数据格式化为JSON串，并返回给调用者。</p>
 
                 <h3>关键数据结构</h3>
+                <el-image src="dist/cpp3.png" fit="contain" style="width: 40%;"></el-image>
 
 
                 <h3>关键接口</h3>
                 <p>下图是我们的算法流程图。算法流程主要包含五部分，为V字形结构。</p>
-                <el-image src="dist/cpp2.png" fit="contain" style="width: 80%;"></el-image>
+                <el-image src="dist/cpp2.jpg" fit="contain" style="width: 80%;"></el-image>
             </div>
 
         </el-tab-pane>
