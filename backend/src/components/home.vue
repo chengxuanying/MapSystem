@@ -23,30 +23,30 @@
         </el-carousel>
 
         <el-row type="flex" justify="space-around">
-            <el-col :span="7">
+            <el-col :span="6">
                 <el-card :body-style="{ padding: '0px' }" shadow="never">
-                    <img src="dist/1.png"
+                    <img src="dist/8.png"
                          class="image">
                     <div style="padding: 10px; text-align: center;">
-                        <span>MapSystem</span>
+                        <span>低耦合设计</span>
                     </div>
                 </el-card>
             </el-col>
-            <el-col :span="7">
+            <el-col :span="6">
                 <el-card :body-style="{ padding: '0px' }" shadow="never">
-                   <img src="dist/2.png"
+                   <img src="dist/9.png"
                          class="image">
                     <div style="padding: 22px; text-align: center;">
-                        <span>数据检索</span>
+                        <span>可视化设计</span>
                     </div>
                 </el-card>
             </el-col>
-            <el-col :span="7">
+            <el-col :span="6">
                 <el-card :body-style="{ padding: '0px' }" shadow="never">
-                   <img src="dist/3.png"
+                   <img src="dist/10.png"
                          class="image">
                     <div style="padding: 20px; text-align: center;">
-                        <span>算法对比</span>
+                        <span>高可用服务</span>
                     </div>
                 </el-card>
             </el-col>
