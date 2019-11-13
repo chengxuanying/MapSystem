@@ -1,6 +1,7 @@
 from flask import Flask, stream_with_context, Response, render_template
 import os
 import json
+import time
 
 app = Flask(__name__,
             static_url_path="",
@@ -87,6 +88,9 @@ def mysort(col='linkid'):
 
             text = json.loads(text)
             back[i][method] = int(round(text["time"]))
+            if int(round(text["time"])) < 20 * 1000:
+                time.sleep(0.15)
+
 
             yield json.dumps({"result": back})
 
