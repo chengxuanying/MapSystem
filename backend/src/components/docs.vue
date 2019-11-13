@@ -33,10 +33,10 @@
         <el-tab-pane label="前端">
             <div style="margin-left: 30px;">
                 <h2>前端</h2>
-                <h3>前端图</h3>
+                <h3>前端流程图</h3>
                 <el-image src="dist/qd.jpg" fit="contain" style="width: 80%;"></el-image>
 
-                <p>前端是在Vue框架下搭建的，通过vue和一些原生代码对html，css，js实现管理，产生前端页面并和交互。</p>
+                <p>前端是在Vue框架下搭建的，通过vue和一些原生代码对html，css，js实现管理，产生前端页面并和交互。</p>
 
                 <p>我们引入了element UI中的元素并进行元素布局，保证实用性的同时增加了美观和用户交互，提高了用户体验。</p>
 
@@ -54,8 +54,9 @@
         <el-tab-pane label="后端">
             <div style="margin-left: 30px;">
                 <h2>后端</h2>
-                <h3>后端图</h3>
+                <h3>后端流程图</h3>
                 <el-image src="dist/hd.jpg" fit="contain" style="width: 80%;"></el-image>
+
                 <p>后端是是基于python编写的，目的是连接用户和计算端，实现用户数据传输。</p>
 
                 <p>通过python调用库和定义函数新建接口和调用计算端。</p>
@@ -65,6 +66,16 @@
                 <p>我们使用了flask定义了RESTful API，用于给前端进行访问和获取数据。</p>
 
                 <p>每次调用计算端后数据会暂时存储在内存中，防止过量调用。</p>
+                <p> &nbsp </p>
+                <h3>用户访问图</h3>
+                <el-image src="dist/liucheng.jpg" fit="contain" style="width: 80%;"></el-image>
+                <p>具体展示了用户访问时内部数据的传递过程。</p>
+                
+                <p>首先前端Vue从浏览器获取到用户输入的数据，然后通过axios将数据发送至后端</p>
+
+                <p>后端接受到数据后生成参数并调用计算端，得到json格式的数据结果。</p>
+
+                <p>结果会发送到前端Vue，前端得到数据后会进行处理并展示到浏览器，用户便可以得到反馈。</p>
             </div>
         </el-tab-pane>
 
