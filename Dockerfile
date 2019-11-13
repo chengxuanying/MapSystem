@@ -8,10 +8,8 @@ RUN pip3 install flask
 
 
 RUN apt-get install -y cmake build-essential
-RUN cd /mapsystem/cpp_backend
-RUN cmake CMakeLists.txt
-RUN make
-RUN cp cpp_backend ../backend
+RUN cd /mapsystem/cpp_backend && cmake CMakeLists.txt && make
+RUN cp /mapsystem/cpp_backend/cpp_backend /mapsystem/backend/
 
 EXPOSE 5000
 CMD ["bash", "first.sh"]
