@@ -58,17 +58,18 @@
                 </el-table-column>
             </el-table-column>
         </el-table>
-        <el-pagination
-                @size-change="handleSizeChange"
-                @current-change="handleCurrentChange"
-                :current-page="currentPage4"
-                :page-size="15"
-                :page-sizes="[10, 15, 20, 30, 40]"
-                layout="total, sizes, prev, pager, next, jumper"
-                :total="total"
-                class="nav-margin"
-                v-if="seen">
-        </el-pagination>
+            <el-pagination
+                    @size-change="handleSizeChange"
+                    @current-change="handleCurrentChange"
+                    :current-page="currentPage4"
+                    :page-size="15"
+                    :page-sizes="[10, 15, 20, 30, 40]"
+                    layout="total, sizes, prev, pager, next, jumper"
+                    :total="total"
+                    class="nav-margin"
+                    style="text-align: center;"
+                    v-if="seen">
+            </el-pagination>
 
     </el-container>
 </template>
@@ -144,6 +145,7 @@
             my_sort(row, column) {
                 var lie = row.prop;
                 var shunxu = row.order;
+                this.nosearch();
 
                 var self = this;
                 let loadingInstance = Loading.service({fullscreen: true});
