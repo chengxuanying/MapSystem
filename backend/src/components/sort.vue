@@ -42,7 +42,7 @@
 
                 <el-col :span="16">
                     <el-col :span="11">
-                        <el-button type="primary" icon="el-icon-switch-button" class="margin_down">评测排序算法</el-button>
+                        <el-button type="primary" icon="el-icon-switch-button" class="margin_down" @click="get_linkid">评测排序算法</el-button>
                     </el-col>
                 </el-col>
 
@@ -69,29 +69,31 @@
     export default {
         data() {
             this.chartSettings = {
-                metrics: ['冒泡排序', '插入排序'],
+                metrics: ['our', 'stdsort', 'qsort', 'bucketsort','heapsort', 'insertsort', 'bubblesort'],
                 yAxisName: ['T/ms'],
                 xAxisName: ['N/记录数'],
-                dimension: ['数据量']
+                dimension: ['n']
             }
             return {
                 chartData: {
-                    columns: ['数据量', '访问用户', '下单用户'],
+                    columns: ['n', 'our', 'stdsort', 'qsort', 'bucketsort','heapsort', 'insertsort', 'bubblesort'],
                     rows: []
                 }
             };
         },
-        created() {
-            var self = this;
-            var url = `http://127.0.0.1:5000/sort`;
+        methods:{
+            get_linkid(){
+                var self = this;
+                var url = `http://127.0.0.1:5000/sort/linkid`;
 
-            axios.get(url).then(function (res) {
-                self.chartData.rows = res.data.result;
-                //console.log(res.data);
-                //console.log(self.chartData.rows);
-            }).catch(function (error) {
-                console.log(error);
-            });
+                axios.get(url).then(function (res) {
+                    self.chartData.rows = res.data.result;
+                    console.log(res.data);
+                    console.log(self.chartData.rows);
+                }).catch(function (error) {
+                    console.log(error);
+                });
+            }
         }
     }
 </script>
