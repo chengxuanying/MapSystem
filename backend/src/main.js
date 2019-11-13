@@ -1,4 +1,5 @@
 import Vue from 'vue'
+import echarts from 'echarts'
 import VCharts from 'v-charts'
 //import './element/index.css'
 import ElementUI from 'element-ui';
@@ -10,6 +11,7 @@ import router from './router'
 
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
+Vue.use(echarts);
 Vue.use(VCharts);
 
 
