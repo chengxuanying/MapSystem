@@ -122,6 +122,6 @@ def refresh():
 if __name__ == '__main__':
 
     # debug 时候取消这个
-    # app_dir = "../cpp_backend/my_cpp_backend"
+    app_dir = "../cpp_backend/my_cpp_backend"
     refresh()
     app.run(host='0.0.0.0', port=5000)
