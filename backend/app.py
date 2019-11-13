@@ -67,20 +67,24 @@ def retrieve_something(arg1, arg2):
     return text
 
 
-@app.route('/sort', methods=['GET'])
-def sort():
-    # r = os.popen('./test/cpp_backend sort'.format(arg1, arg2))
-    # text = r.read()
-    # r.close()
-    text = [
-        {'数据量': '10', '冒泡排序': 1393, '插入排序': 1093},
-        {'数据量': '100', '冒泡排序': 3530, '插入排序': 3230},
-        {'数据量': '1000', '冒泡排序': 2923, '插入排序': 2623},
-        {'数据量': '10000', '冒泡排序': 1723, '插入排序': 1423},
-        {'数据量': '20000', '冒泡排序': 3792, '插入排序': 3492},
-        {'数据量': '50000', '冒泡排序': 4593, '插入排序': 4293}
-    ]
-    return json.dumps({"result": text})
+@app.route('/sort/<string:col>', methods=['GET'])
+def sort(col):
+    back = []
+    for i in [10,100,1000]:
+        back_m = {'n':i}
+        
+        for method in ['our','stdsort','qsort','bucketsort','heapsort','insertsort','bubblesort']:
+            cmd = './test/cpp_backend benchmark {} {} {}'.format(method, col, i)
+            print(cmd)
+            r = os.popen(cmd)
+            text = r.read()
+            r.close()
+            
+            text = json.loads(text)
+            back_m[method] = text["time"]
+#        print(back_m)
+        back.append(back_m)
+    return json.dumps({"result": back})
 
 
 def get_list():
