@@ -13,6 +13,10 @@ RUN "/mapsystem/backend/cpp_backend"
 RUN apt-get install -y python3 python3-pip
 RUN pip3 install flask
 
+RUN locale-gen zh_CN.UTF-8  
+ENV LANG zh_CN.UTF-8
+ENV LANGUAGE zh_CN.UTF-8
+ENV LC_ALL zh_CN.UTF-8
 
 EXPOSE 5000
 CMD ["python3", "app.py"]
