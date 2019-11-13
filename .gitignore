@@ -5,3 +5,4 @@ cmake-build-release
 .idea
 .DS_Store
 resource/.DS_Store
+CMakeCache

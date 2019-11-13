@@ -3,10 +3,13 @@ WORKDIR /mapsystem/backend
 
 COPY . /mapsystem
 
-RUN apt-get update && apt-get install -y python python-dev python3.5 python3.5-dev python-pip virtualenv libssl-dev libpq-dev git build-essential libfontconfig1 libfontconfig1-dev
-RUN pip install flask
+RUN apt-get update && apt-get install -y python3
+RUN pip3 install flask
 
+
+RUN apt-get install -y cmake build-essential
 RUN cd /mapsystem/cpp_backend
+RUN cmake
 RUN make
 RUN cp cpp_backend ../backend
 
