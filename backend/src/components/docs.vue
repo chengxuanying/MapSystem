@@ -25,7 +25,7 @@
                 <p>我们的业务层和计算层之间实现了负载均衡。
                 </p>
                 <p>我们的展示层，业务层、计算层，对外提供端对端的服务。</p>
-            
+
             </div>
 
         </el-tab-pane>
@@ -70,7 +70,7 @@
                 <h3>用户访问图</h3>
                 <el-image src="dist/liucheng.jpg" fit="contain" style="width: 80%;"></el-image>
                 <p>具体展示了用户访问时内部数据的传递过程。</p>
-                
+
                 <p>首先前端Vue从浏览器获取到用户输入的数据，然后通过axios将数据发送至后端</p>
 
                 <p>后端接受到数据后生成参数并调用计算端，得到json格式的数据结果。</p>
@@ -98,7 +98,10 @@
 
                 <h3>关键数据结构</h3>
 
+
                 <h3>关键接口</h3>
+                <p>下图是我们的算法流程图。算法流程主要包含五部分，为V字形结构。</p>
+                <el-image src="dist/cpp2.png" fit="contain" style="width: 80%;"></el-image>
             </div>
 
         </el-tab-pane>
