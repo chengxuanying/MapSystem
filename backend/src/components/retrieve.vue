@@ -102,7 +102,7 @@
             // });
 
 
-            axios.get('http://127.0.0.1:5000/retrieve/tot', {}).then(function (res) {
+            axios.get('api/retrieve/tot', {}).then(function (res) {
                 self.total = res.data.tot;
                 console.log(self.total);
             }).catch(function (error) {
@@ -127,7 +127,7 @@
 
                 var self = this;
                 var page_size = self.page_size;
-                var url = `http://127.0.0.1:5000/retrieve/page_size/${page_size}/page/${val}`;
+                var url = `api/retrieve/page_size/${page_size}/page/${val}`;
 
                 axios.get(url, {}).then(function (res) {
                     self.tableData = res.data.result;
@@ -150,7 +150,7 @@
                 var self = this;
                 let loadingInstance = Loading.service({fullscreen: true});
 
-                var url = `http://127.0.0.1:5000/retrieve/sort/${lie}/${shunxu}`;
+                var url = `api/retrieve/sort/${lie}/${shunxu}`;
 
                 axios.get(url, {}).then(function (res) {
                     self.handleCurrentChange(1);
@@ -171,7 +171,7 @@
                 var arg1 = this.select;
                 var arg2 = this.input3;
 
-                var url = `http://127.0.0.1:5000/retrieve/${arg1}/${arg2}`;
+                var url = `api/retrieve/${arg1}/${arg2}`;
 
                 axios.get(url, {}).then(function (res) {
                     self.tableData = res.data.result;

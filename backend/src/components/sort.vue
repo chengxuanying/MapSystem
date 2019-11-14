@@ -265,7 +265,7 @@
             get_linkid() {
                 var self = this;
                 self.$set(self.myactive, 1, 0);
-                var url = `http://127.0.0.1:5000/sort/linkid`;
+                var url = `api/sort/linkid`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
                     self.next_point(12 * 7, self.chartData1, 1);
@@ -276,7 +276,7 @@
             get_name() {
                 var self = this;
                 self.$set(self.myactive, 2, 0);
-                var url = `http://127.0.0.1:5000/sort/name`;
+                var url = `api/sort/name`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
                     self.next_point(12 * 7, self.chartData2, 2);
@@ -287,7 +287,7 @@
             get_chalu() {
                 var self = this;
                 self.$set(self.myactive, 3, 0);
-                var url = `http://127.0.0.1:5000/sort/chalu`;
+                var url = `api/sort/chalu`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
                     self.next_point(12 * 7, self.chartData3, 3);
@@ -298,7 +298,7 @@
             get_fanhao() {
                 var self = this;
                 self.$set(self.myactive, 4, 0);
-                var url = `http://127.0.0.1:5000/sort/fanhao`;
+                var url = `api/sort/fanhao`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
                     self.next_point(12 * 7, self.chartData4, 4);
@@ -313,7 +313,7 @@
                     self.linkid_load = false;
                     return;
                 }
-                var url = `http://127.0.0.1:5000/sort/next`;
+                var url = `api/sort/next`;
                 axios.get(url).then(function (res) {
                     // console.log(res.data.result);
                     chart_.rows = res.data.result;
