@@ -88,16 +88,15 @@ int main(int argc, char **argv) {
                               bool reversed);
 
             // up or down
-            if (strcmp("our", argv[2]) == 0) { // no implementation
-                sort_func = stdSort;
+            if (strcmp("our", argv[2]) == 0) {
+                sort_func = MySort;
             } else if (strcmp("stdsort", argv[2]) == 0) {
                 sort_func = stdSort;
             } else if (strcmp("qsort", argv[2]) == 0) {
                 sort_func = qSort;
-            } else if (strcmp("bucketsort", argv[2]) == 0) { // no implementation
-//                cout << "bucketsort" << endl;
+            } else if (strcmp("bucketsort", argv[2]) == 0) {
                 sort_func = BucketSort;
-            } else if (strcmp("heapsort", argv[2]) == 0) { // no implementation
+            } else if (strcmp("heapsort", argv[2]) == 0) {
                 sort_func = HeapSort;
             } else if (strcmp("insertsort", argv[2]) == 0) {
                 sort_func = insertSort;

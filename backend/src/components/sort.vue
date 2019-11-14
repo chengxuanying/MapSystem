@@ -13,9 +13,9 @@
                             <el-step title="等待评测"></el-step>
                             <el-step title="改进方法1"></el-step>
                             <el-step title="STD排序"></el-step>
-                            <el-step title="快速排序"></el-step>
                             <el-step title="桶排序"></el-step>
                             <el-step title="堆排序"></el-step>
+                            <el-step title="快速排序"></el-step>
                             <el-step title="插入排序"></el-step>
                             <el-step title="冒泡排序"></el-step>
                         </el-steps>
@@ -66,9 +66,9 @@
                             <el-step title="等待评测"></el-step>
                             <el-step title="改进方法1"></el-step>
                             <el-step title="STD排序"></el-step>
-                            <el-step title="快速排序"></el-step>
                             <el-step title="桶排序"></el-step>
                             <el-step title="堆排序"></el-step>
+                            <el-step title="快速排序"></el-step>
                             <el-step title="插入排序"></el-step>
                             <el-step title="冒泡排序"></el-step>
                         </el-steps>
@@ -117,9 +117,9 @@
                             <el-step title="等待评测"></el-step>
                             <el-step title="改进方法1"></el-step>
                             <el-step title="STD排序"></el-step>
-                            <el-step title="快速排序"></el-step>
                             <el-step title="桶排序"></el-step>
                             <el-step title="堆排序"></el-step>
+                            <el-step title="快速排序"></el-step>
                             <el-step title="插入排序"></el-step>
                             <el-step title="冒泡排序"></el-step>
                         </el-steps>
@@ -168,9 +168,9 @@
                             <el-step title="等待评测"></el-step>
                             <el-step title="改进方法1"></el-step>
                             <el-step title="STD排序"></el-step>
-                            <el-step title="快速排序"></el-step>
                             <el-step title="桶排序"></el-step>
                             <el-step title="堆排序"></el-step>
+                            <el-step title="快速排序"></el-step>
                             <el-step title="插入排序"></el-step>
                             <el-step title="冒泡排序"></el-step>
                         </el-steps>
@@ -306,7 +306,7 @@
                 var url = `api/sort/linkid`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
-                    self.next_point(12 * 7, self.chartData1, 1);
+                    self.next_point(16 * 7, self.chartData1, 1);
                 }).catch(function (error) {
                     console.log(error);
                 });
@@ -317,7 +317,7 @@
                 var url = `api/sort/name`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
-                    self.next_point(12 * 7, self.chartData2, 2);
+                    self.next_point(16 * 7, self.chartData2, 2);
                 }).catch(function (error) {
                     console.log(error);
                 });
@@ -328,7 +328,7 @@
                 var url = `api/sort/chalu`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
-                    self.next_point(12 * 7, self.chartData3, 3);
+                    self.next_point(16 * 7, self.chartData3, 3);
                 }).catch(function (error) {
                     console.log(error);
                 });
@@ -339,7 +339,7 @@
                 var url = `api/sort/fanhao`;
                 axios.get(url).then(function (res) {
                     self.linkid_load = true;
-                    self.next_point(12 * 7, self.chartData4, 4);
+                    self.next_point(16 * 7, self.chartData4, 4);
                 }).catch(function (error) {
                     console.log(error);
                 });
@@ -355,7 +355,7 @@
                 axios.get(url).then(function (res) {
                     // console.log(res.data.result);
                     chart_.rows = res.data.result;
-                    if (n % 12 === 0) {
+                    if (n % 16 === 0) {
                        self.$set(self.myactive, active, self.myactive[active]+1);
                     }
                     self.next_point(n - 1, chart_, active);

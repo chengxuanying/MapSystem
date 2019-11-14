@@ -147,15 +147,15 @@ void HeapSort(class Record **ptr, int cnt,
 vector<class Record *> bucket[890000];
 
 void BucketSort(class Record **ptr, int cnt,
-              bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
-              bool reversed) {
+                bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                bool reversed) {
 
-    if (is_smaller == smaller_by_name){
+    if (is_smaller == smaller_by_name) {
         stdSort(ptr, cnt, smaller_by_name, reversed);
         return;
     }
 
-    if (is_smaller == smaller_by_linkid){
+    if (is_smaller == smaller_by_linkid) {
         for (int i = 0; i < 890000; ++i) {
             bucket[i].clear();
         }
@@ -167,7 +167,7 @@ void BucketSort(class Record **ptr, int cnt,
 
         int index = 0;
         for (int i = 0; i < 890000; ++i) {
-            for(int j = 0; j < bucket[i].size(); ++j){
+            for (int j = 0; j < bucket[i].size(); ++j) {
                 ptr[index++] = bucket[i][j];
             }
         }
@@ -175,7 +175,7 @@ void BucketSort(class Record **ptr, int cnt,
         return;
     }
 
-    if (is_smaller == smaller_by_chalu){
+    if (is_smaller == smaller_by_chalu) {
         for (int i = 0; i < 20; ++i) {
             bucket[i].clear();
         }
@@ -187,7 +187,7 @@ void BucketSort(class Record **ptr, int cnt,
 
         int index = 0;
         for (int i = 0; i < 20; ++i) {
-            for(int j = 0; j < bucket[i].size(); ++j){
+            for (int j = 0; j < bucket[i].size(); ++j) {
                 ptr[index++] = bucket[i][j];
             }
         }
@@ -195,7 +195,7 @@ void BucketSort(class Record **ptr, int cnt,
         return;
     }
 
-    if (is_smaller == smaller_by_fanhao){
+    if (is_smaller == smaller_by_fanhao) {
         for (int i = 0; i < 20; ++i) {
             bucket[i].clear();
         }
@@ -207,9 +207,123 @@ void BucketSort(class Record **ptr, int cnt,
 
         int index = 0;
         for (int i = 0; i < 20; ++i) {
-            for(int j = 0; j < bucket[i].size(); ++j){
+            for (int j = 0; j < bucket[i].size(); ++j) {
                 ptr[index++] = bucket[i][j];
             }
+        }
+
+        return;
+    }
+}
+
+class Record *src[MAX];
+
+int cnt_[880100];
+int row2id[MAX];
+
+void MySort(class Record **ptr, int cnt,
+            bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+            bool reversed) {
+
+    if (is_smaller == smaller_by_name) {
+        // string to ordered id
+        unordered_set<string> s;
+        for (int i = 0; i < cnt; ++i) {
+            s.insert(*ptr[i]->getname());
+        }
+
+        vector<string> ss(s.begin(), s.end());
+        sort(ss.begin(), ss.end());
+//        reverse(ss.begin(), ss.end());
+
+        map<string, int> m;
+
+        int string_cnt = 0;
+        for (auto &a: ss) {
+            m[a] = string_cnt++;
+        }
+
+        for (int k = 0; k < cnt; ++k) {
+            src[k] = ptr[k];
+        }
+        for (int l = 0; l < 2000; ++l) {
+            cnt_[l] = 0;
+        }
+        for (int i = 0; i < cnt; ++i) {
+            int j = m[*ptr[i]->getname()];
+            row2id[i] = j;
+            cnt_[j]++;
+        }
+        for (int j = 1; j < 2000; ++j) {
+            cnt_[j] += cnt_[j - 1];
+        }
+        for (int j = cnt; j > 0; j--) {
+//            cout << j << '=' << m[*ptr[j-1]->getname()] << endl;
+            ptr[--cnt_[row2id[j-1]]] = src[j - 1];
+        }
+//        cout << 2 << endl;
+        return;
+    }
+
+    if (is_smaller == smaller_by_linkid) {
+        for (int k = 0; k < cnt; ++k) {
+            src[k] = ptr[k];
+        }
+        for (int l = 0; l < MAX; ++l) {
+            cnt_[l] = 0;
+        }
+        cnt_[880088] = 0;
+        for (int i = 0; i < cnt; ++i) {
+            cnt_[ptr[i]->getfanhao()]++;
+        }
+        for (int j = 1; j < 880100; ++j) {
+            cnt_[j] += cnt_[j - 1];
+        }
+        for (int j = cnt; j > 0; j--) {
+            ptr[--cnt_[src[j - 1]->getfanhao()]] = src[j - 1];
+
+        }
+
+        return;
+    }
+
+    if (is_smaller == smaller_by_chalu) {
+        for (int k = 0; k < cnt; ++k) {
+            src[k] = ptr[k];
+        }
+        for (int l = 0; l < 5; ++l) {
+            cnt_[l] = 0;
+        }
+        for (int i = 0; i < cnt; ++i) {
+            cnt_[ptr[i]->getfanhao()]++;
+        }
+        for (int j = 1; j < 5; ++j) {
+            cnt_[j] += cnt_[j - 1];
+        }
+        for (int j = cnt; j > 0; j--) {
+            ptr[--cnt_[src[j - 1]->getfanhao()]] = src[j - 1];
+
+        }
+
+        return;
+    }
+
+    if (is_smaller == smaller_by_fanhao) {
+        for (int k = 0; k < cnt; ++k) {
+            src[k] = ptr[k];
+        }
+        for (int l = 0; l < 15; ++l) {
+            cnt_[l] = 0;
+        }
+        for (int i = 0; i < cnt; ++i) {
+            cnt_[ptr[i]->getfanhao()]++;
+        }
+        for (int j = 1; j < 15; ++j) {
+            cnt_[j] += cnt_[j - 1];
+        }
+        for (int j = cnt; j > 0; j--) {
+            ptr[--cnt_[src[j - 1]->getfanhao()]] = src[j - 1];
+
         }
 
         return;

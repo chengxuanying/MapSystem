@@ -12,6 +12,9 @@
 #include <iconv.h>
 #include <algorithm>
 #include <time.h>
+#include <map>
+#include <set>
+#include <unordered_set>
 
 #define MAX 64000
 

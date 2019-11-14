@@ -3,15 +3,15 @@ import os
 import time
 
 from flask import Flask, redirect, send_from_directory, session, request
-#from requests import get
+
+# from requests import get
 
 cur_id = 1
-
-
 
 app = Flask(__name__,
             static_url_path="/dist",
             static_folder="dist")
+
 
 # 跨域支持
 def after_request(resp):
@@ -24,24 +24,27 @@ app.after_request(after_request)
 
 database = None
 
+
 @app.route('/sessionid', methods=['GET'])
 def id_(resp):
     cookie = request.cookies.get('cooid')
-    
-    if(not cookie):
-        global cur_id
-        resp.set_cookie('cooid',str(cur_id))
-        cur_id+=1
 
-    
+    if (not cookie):
+        global cur_id
+        resp.set_cookie('cooid', str(cur_id))
+        cur_id += 1
+
+
 @app.route('/', methods=['GET'])
 def app_index():
     return redirect('/index.html')
+
 
 @app.route('/assets/<path:filename>')
 def custom_static(filename):
     return send_from_directory('assets',
                                filename)
+
 
 @app.route('/api/retrieve/test', methods=['GET'])
 def test():
@@ -94,8 +97,9 @@ def retrieve_something(arg1, arg2):
 
 
 def mysort(col='linkid'):
-    N = [10, 100, 500, 1000, 5000, 7000, 9000, 10000, 20000, 30000, 40000, 50000]
-    M = ['our', 'stdsort', 'qsort', 'bucketsort', 'heapsort', 'insertsort', 'bubblesort']
+    N = [10, 100, 500, 1000, 5000, 7000, 9000, 10000,
+         15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000]
+    M = ['our', 'stdsort', 'bucketsort', 'heapsort', 'qsort', 'insertsort', 'bubblesort']
 
     back = [{} for i in range(len(N))]
 
@@ -111,12 +115,11 @@ def mysort(col='linkid'):
 
             text = json.loads(text)
             back[i][method] = int(round(text["time"]))
-            if int(round(text["time"])) < 20 * 1000:
-                time.sleep(0.15)
 
             yield json.dumps({"result": back})
 
-generator_dic ={}
+
+generator_dic = {}
 
 
 @app.route('/api/sort/<string:col>', methods=['GET'])
@@ -124,7 +127,7 @@ def sort(col):
     global generator_dic
     _id = int(request.cookies.get('cooid'))
     generator_dic[_id] = mysort(col)
-    #generator_obj = mysort(col)
+    # generator_obj = mysort(col)
     return ""
 
 
@@ -152,9 +155,7 @@ def refresh():
     database = json.loads(get_list())
 
 
-
 if __name__ == '__main__':
-
     # debug 时候取消这个
     global app_dir
     #app_dir = "../cpp_backend/my_cpp_backend"
