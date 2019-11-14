@@ -123,7 +123,6 @@ generator_dic ={}
 def sort(col):
     global generator_dic
     _id = int(request.cookies.get('cooid'))
-    print(_id)
     generator_dic[_id] = mysort(col)
     #generator_obj = mysort(col)
     return ""
@@ -133,7 +132,6 @@ def sort(col):
 def sort_next():
     global generator_dic
     _id = int(request.cookies.get('cooid'))
-    print(_id)
     return next(generator_dic[_id])
 
 
@@ -159,7 +157,7 @@ if __name__ == '__main__':
 
     # debug 时候取消这个
     global app_dir
-    # app_dir = "../cpp_backend/my_cpp_backend"
+    #app_dir = "../cpp_backend/my_cpp_backend"
     app_dir = "/mapsystem/backend/ubuntu_cpp_backend"
 
     refresh()
