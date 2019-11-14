@@ -2,7 +2,7 @@
 
 ## System Architecture
 
-<img src="backend/assets/docs1.png" alt="docs1" style="zoom:50%;" />
+<img src="backend/assets/docs1.png" alt="docs1" width="70%" />
 
 ## Demo
 
