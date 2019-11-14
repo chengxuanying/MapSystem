@@ -12,8 +12,8 @@
                         <el-steps :space="100" :active="myactive[1]" finish-status="success">
                             <el-step title="等待评测"></el-step>
                             <el-step title="改进方法1"></el-step>
-                            <el-step title="STD排序"></el-step>
                             <el-step title="桶排序"></el-step>
+                            <el-step title="STD排序"></el-step>
                             <el-step title="堆排序"></el-step>
                             <el-step title="快速排序"></el-step>
                             <el-step title="插入排序"></el-step>
@@ -65,8 +65,8 @@
                         <el-steps :space="100" :active="myactive[2]" finish-status="success">
                             <el-step title="等待评测"></el-step>
                             <el-step title="改进方法1"></el-step>
-                            <el-step title="STD排序"></el-step>
                             <el-step title="桶排序"></el-step>
+                            <el-step title="STD排序"></el-step>
                             <el-step title="堆排序"></el-step>
                             <el-step title="快速排序"></el-step>
                             <el-step title="插入排序"></el-step>
@@ -116,8 +116,8 @@
                         <el-steps :space="100" :active="myactive[3]" finish-status="success">
                             <el-step title="等待评测"></el-step>
                             <el-step title="改进方法1"></el-step>
-                            <el-step title="STD排序"></el-step>
                             <el-step title="桶排序"></el-step>
+                            <el-step title="STD排序"></el-step>
                             <el-step title="堆排序"></el-step>
                             <el-step title="快速排序"></el-step>
                             <el-step title="插入排序"></el-step>
@@ -167,8 +167,8 @@
                         <el-steps :space="100" :active="myactive[4]" finish-status="success">
                             <el-step title="等待评测"></el-step>
                             <el-step title="改进方法1"></el-step>
-                            <el-step title="STD排序"></el-step>
                             <el-step title="桶排序"></el-step>
+                            <el-step title="STD排序"></el-step>
                             <el-step title="堆排序"></el-step>
                             <el-step title="快速排序"></el-step>
                             <el-step title="插入排序"></el-step>

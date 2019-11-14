@@ -99,7 +99,7 @@ def retrieve_something(arg1, arg2):
 def mysort(col='linkid'):
     N = [10, 100, 500, 1000, 5000, 7000, 9000, 10000,
          15000, 20000, 25000, 30000, 35000, 40000, 45000, 50000]
-    M = ['our', 'stdsort', 'bucketsort', 'heapsort', 'qsort', 'insertsort', 'bubblesort']
+    M = ['our', 'bucketsort', 'stdsort', 'heapsort', 'qsort', 'insertsort', 'bubblesort']
 
     back = [{} for i in range(len(N))]
 
@@ -158,8 +158,7 @@ def refresh():
 if __name__ == '__main__':
     # debug 时候取消这个
     global app_dir
-    #app_dir = "../cpp_backend/my_cpp_backend"
-    app_dir = "/mapsystem/backend/ubuntu_cpp_backend"
+    app_dir = "./my_cpp_backend"
 
     refresh()
     app.run(host='0.0.0.0', port=5000)
