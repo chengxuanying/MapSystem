@@ -95,7 +95,8 @@ int main(int argc, char **argv) {
             } else if (strcmp("qsort", argv[2]) == 0) {
                 sort_func = qSort;
             } else if (strcmp("bucketsort", argv[2]) == 0) { // no implementation
-                sort_func = stdSort;
+//                cout << "bucketsort" << endl;
+                sort_func = BucketSort;
             } else if (strcmp("heapsort", argv[2]) == 0) { // no implementation
                 sort_func = HeapSort;
             } else if (strcmp("insertsort", argv[2]) == 0) {

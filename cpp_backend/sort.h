@@ -42,6 +42,10 @@ void HeapSort(class Record **ptr, int cnt,
               bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
               bool reversed);
 
+void BucketSort(class Record **ptr, int cnt,
+                bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+                bool reversed);
+
 void sort_my_record_by_name(class Record **ptr, int cnt, bool reversed = false,
                             void (*sort_func)(class Record **ptr, int cnt,
                                               bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
