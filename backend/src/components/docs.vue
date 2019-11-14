@@ -55,7 +55,7 @@
             <div style="margin-left: 30px;">
                 <h2>后端</h2>
                 <h3>后端流程图</h3>
-                <el-image src="src/assets/hd.jpg" fit="contain" style="width: 80%;"></el-image>
+                <el-image src="../assets/hd.jpg" fit="contain" style="width: 80%;"></el-image>
 
                 <p>后端是是基于python编写的，目的是连接用户和计算端，实现用户数据传输。</p>
 
@@ -68,7 +68,7 @@
                 <p>每次调用计算端后数据会暂时存储在内存中，防止过量调用。</p>
                 <p> &nbsp </p>
                 <h3>用户访问图</h3>
-                <el-image src="src/assets/liucheng.jpg" fit="contain" style="width: 80%;"></el-image>
+                <el-image src="../assets/liucheng.jpg" fit="contain" style="width: 80%;"></el-image>
                 <p>具体展示了用户访问时内部数据的传递过程。</p>
 
                 <p>首先前端Vue从浏览器获取到用户输入的数据，然后通过axios将数据发送至后端</p>
@@ -84,11 +84,11 @@
                 <h2>计算端</h2>
 
                 <h3>类图</h3>
-                <el-image src="src/assets/cpp4.png" fit="contain" style="width: 40%;"></el-image>
+                <el-image src="../assets/cpp4.png" fit="contain" style="width: 40%;"></el-image>
 
                 <h3>算法流程图</h3>
                 <p>下图是我们的算法流程图。算法流程主要包含五部分，为V字形结构。</p>
-                <el-image src="src/assets/cpp1.png" fit="contain" style="width: 80%;"></el-image>
+                <el-image src="../assets/cpp1.png" fit="contain" style="width: 80%;"></el-image>
 
                 <p>来自上层后台的数据以参数的形式传入。我们的程序对参数进行解析，决定执行哪个函数并进行函数选择，通过函数指针选择要执行的函数。</p>
 
@@ -98,12 +98,12 @@
                 <p>最后，程序根据具体业务确定附加操作，并执行附加操作。最后，程序将结构化数据格式化为JSON串，并返回给调用者。</p>
 
                 <h3>关键数据结构</h3>
-                <el-image src="src/assets/cpp3.png" fit="contain" style="width: 40%;"></el-image>
+                <el-image src="../assets/cpp3.png" fit="contain" style="width: 40%;"></el-image>
 
 
                 <h3>关键接口</h3>
                 <p>下图是我们的算法流程图。算法流程主要包含五部分，为V字形结构。</p>
-                <el-image src="src/assets/cpp2.jpg" fit="contain" style="width: 80%;"></el-image>
+                <el-image src="../assets/cpp2.jpg" fit="contain" style="width: 80%;"></el-image>
             </div>
 
         </el-tab-pane>

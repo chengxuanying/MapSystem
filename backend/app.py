@@ -2,7 +2,7 @@ import json
 import os
 import time
 
-from flask import Flask, redirect
+from flask import Flask, redirect, send_from_directory
 from requests import get
 
 app_dir = "/mapsystem/backend/cpp_backend"
@@ -22,20 +22,15 @@ app.after_request(after_request)
 
 database = None
 
-SITE_NAME = 'http://127.0.0.1:8010/'
-
-
-# @app.route('/', defaults={'path': ''})
-@app.route('/<path:dummy>')
-def proxy(dummy):
-    print('{SITE_NAME}{path}')
-    return get(f'{SITE_NAME}{dummy}').content
-
 
 @app.route('/', methods=['GET'])
 def app_index():
     return redirect('/index.html')
 
+@app.route('/assets/<path:filename>')
+def custom_static(filename):
+    return send_from_directory('assets',
+                               filename)
 
 @app.route('/api/retrieve/test', methods=['GET'])
 def test():
