@@ -211,19 +211,28 @@
             </el-tab-pane>
         </el-tabs>
         <el-row>
-            <el-row>&nbsp</el-row>
             <el-col :span="2">&nbsp;</el-col>
             <el-col :span="20">
+                <p>点击评测排序算法按钮开始评测。</p>
+                <el-row>&nbsp</el-row>
+                <el-divider></el-divider>
+                <h3>各算法时间复杂度与空间复杂度如下表所示:</h3>
                 <el-table :data="tableData" border style="width: 100%">
                     <el-table-column prop="sort" label="算法"></el-table-column>
                     <el-table-column prop="time" label="时间复杂度"></el-table-column>
                     <el-table-column prop="address" label="空间复杂度"></el-table-column>
                 </el-table>
+                <el-row>&nbsp</el-row>
+                <div>
+                    <div>通过数据量和时间折线图我们可以看出，随着数据量的增加，时间复杂度为<katex-element expression="\log{}n"/>
+                    的算法包括标准排序，快速排序，堆排序，他们的运行时间随时间变化不大。</div>
+                    <p>特别值得注意的是桶排序。执行时间随数据量的成常数变化。</p>
+                    <div>最后是复杂度是<katex-element expression="n^2"/>的插入排序和冒泡排序。他们的执行时间随数据量的变化较大，在图中可以看出来呈抛物线形状。</div>
+                </div>
             </el-col>
             <el-col :span="2">&nbsp;</el-col>
         </el-row>
     </el-container>
-
 </template>
 
 <script>
@@ -260,21 +269,33 @@
                 linkid_load: false,
                 activeName: 'linkid',
                 tableData: [{
-                    sort: '快速排序',
-                    time: 'O(nlog2n)',
-                    address: 'O(log2n)'
+                    sort: '改进方法',
+                    time: <div v-katex="\mathcal{0}(n\log{}n)"></div>,
+                    address: <div v-katex="\mathcal{0}(n\log{}n)"></div>
                     }, {
+                    sort: 'STD排序',
+                    time: <div v-katex="\mathcal{0}(n\log{}n)"></div>,
+                    address: <div v-katex="\mathcal{0}(n\log{}n)"></div>
+                    }, {
+                    sort: '快速排序',
+                    time: <div v-katex="\mathcal{0}(n\log{}n)"></div>,
+                    address: <div v-katex="\mathcal{0}(n\log{}n)"></div>
+                    }, {
+                    sort: '桶排序（桶数为m）',
+                    time: <div v-katex="\mathcal{0}(n+n*(\log{}n-\log{}m))"></div>,
+                    address: <div v-katex="\mathcal{0}(n+m)"></div>
+                    },{
                     sort: '堆排序',
-                    time: 'O(nlog2n)',
-                    address: 'O(1)'
+                    time: <div v-katex="\mathcal{0}(n\log{}n)"></div>,
+                    address: <div v-katex="\mathcal{0}(1)"></div>
                     }, {
                     sort: '插入排序',
-                    time: 'O(n2)',
-                    address: 'O(1)'
+                    time: <div v-katex="\mathcal{0}(n^2)"></div>,
+                    address: <div v-katex="\mathcal{0}(1)"></div>
                     }, {
-                    sort: '2016-05-03',
-                    time: '王小虎',
-                    address: '上海市普陀区金沙江路 1516 弄'
+                    sort: '冒泡排序',
+                    time: <div v-katex="\mathcal{0}(n^2)"></div>,
+                    address: <div v-katex="\mathcal{0}(1)"></div>
                 }]
             };
         },
