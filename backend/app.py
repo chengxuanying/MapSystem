@@ -2,8 +2,10 @@ import json
 import os
 import time
 
-from flask import Flask, redirect, send_from_directory
-from requests import get
+from flask import Flask, redirect, send_from_directory, session, request
+#from requests import get
+
+cur_id = 1
 
 app_dir = "/mapsystem/backend/cpp_backend"
 
@@ -11,10 +13,10 @@ app = Flask(__name__,
             static_url_path="/dist",
             static_folder="dist")
 
-
 # 跨域支持
 def after_request(resp):
     resp.headers['Access-Control-Allow-Origin'] = '*'
+    id_(resp)
     return resp
 
 
@@ -22,7 +24,16 @@ app.after_request(after_request)
 
 database = None
 
+@app.route('/sessionid', methods=['GET'])
+def id_(resp):
+    cookie = request.cookies.get('cooid')
+    
+    if(not cookie):
+        global cur_id
+        resp.set_cookie('cooid',str(cur_id))
+        cur_id+=1
 
+    
 @app.route('/', methods=['GET'])
 def app_index():
     return redirect('/index.html')
@@ -105,17 +116,25 @@ def mysort(col='linkid'):
 
             yield json.dumps({"result": back})
 
+generator_dic ={}
+
 
 @app.route('/api/sort/<string:col>', methods=['GET'])
 def sort(col):
-    global generator_obj
-    generator_obj = mysort(col)
+    global generator_dic
+    _id = int(request.cookies.get('cooid'))
+    print(_id)
+    generator_dic[_id] = mysort(col)
+    #generator_obj = mysort(col)
     return ""
 
 
 @app.route('/api/sort/next', methods=['GET'])
 def sort_next():
-    return next(generator_obj)
+    global generator_dic
+    _id = int(request.cookies.get('cooid'))
+    print(_id)
+    return next(generator_dic[_id])
 
 
 @app.route('/index.html', methods=['GET'])
