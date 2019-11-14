@@ -7,7 +7,7 @@
 
                 <h3>系统架构图</h3>
                 <p>下图是我们的系统架构图。我们的系统架构主要分为前端ui展示层，业务层，计算层，数据库，运行环境六部分。</p>
-                <el-image src="src/assets/docs1.png" fit="contain" style="width: 80%;"></el-image>
+                <el-image src="../assets/docs1.png" fit="contain" style="width: 80%;"></el-image>
 
 
                 <p>其中，我们的前端UI包括element ui，包括CSS，包括JavaScript以及我们美工，黄俊文童鞋，制作的图片。
@@ -34,7 +34,7 @@
             <div style="margin-left: 30px;">
                 <h2>前端</h2>
                 <h3>前端流程图</h3>
-                <el-image src="src/assets/qd.jpg" fit="contain" style="width: 80%;"></el-image>
+                <el-image src="../assets/qd.jpg" fit="contain" style="width: 80%;"></el-image>
 
                 <p>前端是在Vue框架下搭建的，通过vue和一些原生代码对html，css，js实现管理，产生前端页面并和交互。</p>
 
