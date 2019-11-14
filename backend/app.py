@@ -7,7 +7,7 @@ from flask import Flask, redirect, send_from_directory, session, request
 
 cur_id = 1
 
-app_dir = "/mapsystem/backend/cpp_backend"
+
 
 app = Flask(__name__,
             static_url_path="/dist",
@@ -139,10 +139,7 @@ def sort_next():
 
 @app.route('/index.html', methods=['GET'])
 def index():
-    if debug:
-        return ""
-    else:
-        return app.send_static_file('index.html')
+    return app.send_static_file('index.html')
 
 
 def get_list():
@@ -157,13 +154,13 @@ def refresh():
     database = json.loads(get_list())
 
 
-debug = False
 
 if __name__ == '__main__':
 
     # debug 时候取消这个
-    # if debug:
+    global app_dir
     # app_dir = "../cpp_backend/my_cpp_backend"
+    app_dir = "/mapsystem/backend/ubuntu_cpp_backend"
 
     refresh()
     app.run(host='0.0.0.0', port=5000)
