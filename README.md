@@ -2,15 +2,16 @@
 
 ## System Architecture
 
-![docs1](/Users/paixingxing/Documents/GitHub/MapSystem/backend/assets/docs1.png)
+![docs1](backend/assets/docs1.png)
 
 ## Demo
 
 ### Road Retrieval
 
-![readme2](/Users/paixingxing/Documents/GitHub/MapSystem/resource/readme2.gif)
+![readme2](resource/readme2.gif)
 
-### Algorithm Analysis ![readme1](/Users/paixingxing/Documents/GitHub/MapSystem/resource/readme1.gif)
+### Algorithm Analysis
+![readme1](resource/readme1.gif)
 
 
 
