@@ -144,6 +144,78 @@ void HeapSort(class Record **ptr, int cnt,
     }
 }
 
+vector<class Record *> bucket[890000];
+
+void BucketSort(class Record **ptr, int cnt,
+              bool (*is_smaller)(class Record *a, class Record *b, bool reversed),
+              bool reversed) {
+
+    if (is_smaller == smaller_by_name){
+        stdSort(ptr, cnt, smaller_by_name, reversed);
+        return;
+    }
+
+    if (is_smaller == smaller_by_linkid){
+        for (int i = 0; i < 890000; ++i) {
+            bucket[i].clear();
+        }
+
+        for (int i = 0; i < cnt; ++i) {
+            int id = ptr[i]->getid();
+            bucket[id].push_back(ptr[i]);
+        }
+
+        int index = 0;
+        for (int i = 0; i < 890000; ++i) {
+            for(int j = 0; j < bucket[i].size(); ++j){
+                ptr[index++] = bucket[i][j];
+            }
+        }
+
+        return;
+    }
+
+    if (is_smaller == smaller_by_chalu){
+        for (int i = 0; i < 20; ++i) {
+            bucket[i].clear();
+        }
+
+        for (int i = 0; i < cnt; ++i) {
+            int id = ptr[i]->getchalu();
+            bucket[id].push_back(ptr[i]);
+        }
+
+        int index = 0;
+        for (int i = 0; i < 20; ++i) {
+            for(int j = 0; j < bucket[i].size(); ++j){
+                ptr[index++] = bucket[i][j];
+            }
+        }
+
+        return;
+    }
+
+    if (is_smaller == smaller_by_fanhao){
+        for (int i = 0; i < 20; ++i) {
+            bucket[i].clear();
+        }
+
+        for (int i = 0; i < cnt; ++i) {
+            int id = ptr[i]->getfanhao();
+            bucket[id].push_back(ptr[i]);
+        }
+
+        int index = 0;
+        for (int i = 0; i < 20; ++i) {
+            for(int j = 0; j < bucket[i].size(); ++j){
+                ptr[index++] = bucket[i][j];
+            }
+        }
+
+        return;
+    }
+}
+
 /*
  *
  * 业务
