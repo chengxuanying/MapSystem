@@ -158,7 +158,8 @@ def refresh():
 if __name__ == '__main__':
     # debug 时候取消这个
     global app_dir
-    app_dir = "./my_cpp_backend"
+    app_dir = "/mapsystem/backend/cpp_backend"
+    # app_dir = "./my_cpp_backend"
 
     refresh()
     app.run(host='0.0.0.0', port=5000)
