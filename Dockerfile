@@ -2,6 +2,8 @@ FROM ubuntu
 
 WORKDIR /mapsystem/backend
 
+COPY . /mapsystem
+
 RUN apt-get update && apt-get install -y locales
 RUN locale-gen zh_CN.UTF-8  
 ENV LANG zh_CN.UTF-8
