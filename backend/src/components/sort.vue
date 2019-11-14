@@ -1,11 +1,12 @@
 <template>
     <el-container direction='vertical'>
+
         <h2> 算法对比 </h2>
         <el-tabs v-model="activeName" @tab-click="handleClick">
             <el-tab-pane label="LinkID" name="linkid">
                 <h3>排序关键字: LinkID</h3>
 
-                <el-container>
+                <el-container direction="vertical">
                     <el-main>
                         <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
                         <el-steps :space="100" :active="myactive[1]" finish-status="success">
@@ -51,9 +52,6 @@
                             &nbsp;
                         </el-col>
                     </el-row>
-                    <el-footer>
-                        <div class="margin_down">从如上结果中我们不难看出。。。。</div>
-                    </el-footer>
                 </el-container>
 
 
@@ -61,7 +59,7 @@
 
             <el-tab-pane label="道路名称" name="name">
                 <h3> 排序关键字: 道路名称</h3>
-                <el-container>
+                <el-container direction="vertical">
                     <el-main>
                         <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
                         <el-steps :space="100" :active="myactive[2]" finish-status="success">
@@ -107,15 +105,12 @@
                             &nbsp;
                         </el-col>
                     </el-row>
-                    <el-footer>
-                        <div class="margin_down">从如上结果中我们不难看出。。。。</div>
-                    </el-footer>
                 </el-container>
             </el-tab-pane>
 
             <el-tab-pane label="岔路数量" name="chalu">
                 <h3>排序关键字: 岔路数量</h3>
-                <el-container>
+                <el-container direction="vertical">
                     <el-main>
                         <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
                         <el-steps :space="100" :active="myactive[3]" finish-status="success">
@@ -161,15 +156,12 @@
                             &nbsp;
                         </el-col>
                     </el-row>
-                    <el-footer>
-                        <div class="margin_down">从如上结果中我们不难看出。。。。</div>
-                    </el-footer>
                 </el-container>
             </el-tab-pane>
 
             <el-tab-pane label="道路番号" name="fanhao">
                 <h3> 排序关键字: 道路番号</h3>
-                <el-container>
+                <el-container direction="vertical">
                     <el-main>
                         <div class="margin_down">下图展示了数量N为自变量，时间T为因变量的算法执行时间图，探究N与T的关系：</div>
                         <el-steps :space="100" :active="myactive[4]" finish-status="success">
@@ -215,13 +207,21 @@
                             &nbsp;
                         </el-col>
                     </el-row>
-                    <el-footer>
-                        <div class="margin_down">从如上结果中我们不难看出。。。。</div>
-                    </el-footer>
                 </el-container>
-
             </el-tab-pane>
         </el-tabs>
+        <el-row>
+            <el-row>&nbsp</el-row>
+            <el-col :span="2">&nbsp;</el-col>
+            <el-col :span="20">
+                <el-table :data="tableData" border style="width: 100%">
+                    <el-table-column prop="sort" label="算法"></el-table-column>
+                    <el-table-column prop="time" label="时间复杂度"></el-table-column>
+                    <el-table-column prop="address" label="空间复杂度"></el-table-column>
+                </el-table>
+            </el-col>
+            <el-col :span="2">&nbsp;</el-col>
+        </el-row>
     </el-container>
 
 </template>
@@ -258,7 +258,24 @@
                 },
                 myactive:[0,0,0,0,0],
                 linkid_load: false,
-                activeName: 'linkid'
+                activeName: 'linkid',
+                tableData: [{
+                    sort: '快速排序',
+                    time: 'O(nlog2n)',
+                    address: 'O(log2n)'
+                    }, {
+                    sort: '堆排序',
+                    time: 'O(nlog2n)',
+                    address: 'O(1)'
+                    }, {
+                    sort: '插入排序',
+                    time: 'O(n2)',
+                    address: 'O(1)'
+                    }, {
+                    sort: '2016-05-03',
+                    time: '王小虎',
+                    address: '上海市普陀区金沙江路 1516 弄'
+                }]
             };
         },
         methods: {
