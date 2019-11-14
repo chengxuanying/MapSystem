@@ -6,7 +6,6 @@ COPY . /mapsystem
 
 
 RUN cp /mapsystem/cpp_backend/ubuntu_cpp_backend /mapsystem/backend/
-RUN /mapsystem/backend/ubuntu_cpp_backend
 
 RUN pip3 install flask
 
