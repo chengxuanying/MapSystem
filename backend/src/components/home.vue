@@ -20,6 +20,24 @@
                 </el-carousel-item-->
                 <el-image src="../assets/15.jpg" class="carousel_image_type" fit="contain"></el-image>
             </el-carousel-item>
+            <el-carousel-item>
+                <!--el-carousel-item v-for="item in photos" :key="item">
+                    <h3 class="small">{{ item }}</h3>
+                </el-carousel-item-->
+                <el-image src="../assets/22.jpg" class="carousel_image_type" fit="contain"></el-image>
+            </el-carousel-item>
+            <el-carousel-item>
+                <!--el-carousel-item v-for="item in photos" :key="item">
+                    <h3 class="small">{{ item }}</h3>
+                </el-carousel-item-->
+                <el-image src="../assets/21.jpg" class="carousel_image_type" fit="contain"></el-image>
+            </el-carousel-item>
+            <el-carousel-item>
+                <!--el-carousel-item v-for="item in photos" :key="item">
+                    <h3 class="small">{{ item }}</h3>
+                </el-carousel-item-->
+                <el-image src="../assets/23.jpg" class="carousel_image_type" fit="contain"></el-image>
+            </el-carousel-item>
         </el-carousel>
 
         <el-row type="flex" justify="space-around">
