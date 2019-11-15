@@ -1,6 +1,6 @@
 <template>
-    <div id="app">
-        <el-row :gutter="20">
+    <div id="app" class="bkg">
+        <el-row :gutter="20" >
             <el-col :span="4">
                 <div class="grid-content bg-purple"></div>
             </el-col>
@@ -81,5 +81,12 @@
 
     .footer-margin {
         margin-bottom: 100px;
+    }
+
+    .bkg{
+        /*background:url("../assets/bkg-min.jpg") no-repeat;*/
+        /*background-size:contain;*/
+        /*width:10rem;*/
+        /*height:5rem;*/
     }
 </style>

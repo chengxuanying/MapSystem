@@ -24,19 +24,19 @@
                 <!--el-carousel-item v-for="item in photos" :key="item">
                     <h3 class="small">{{ item }}</h3>
                 </el-carousel-item-->
-                <el-image src="../assets/22.jpg" class="carousel_image_type" fit="contain"></el-image>
+                <el-image src="../assets/22-min.jpg" class="carousel_image_type" fit="contain"></el-image>
             </el-carousel-item>
             <el-carousel-item>
                 <!--el-carousel-item v-for="item in photos" :key="item">
                     <h3 class="small">{{ item }}</h3>
                 </el-carousel-item-->
-                <el-image src="../assets/21.jpg" class="carousel_image_type" fit="contain"></el-image>
+                <el-image src="../assets/21-min.jpg" class="carousel_image_type" fit="contain"></el-image>
             </el-carousel-item>
             <el-carousel-item>
                 <!--el-carousel-item v-for="item in photos" :key="item">
                     <h3 class="small">{{ item }}</h3>
                 </el-carousel-item-->
-                <el-image src="../assets/23.jpg" class="carousel_image_type" fit="contain"></el-image>
+                <el-image src="../assets/23-min.jpg" class="carousel_image_type" fit="contain"></el-image>
             </el-carousel-item>
         </el-carousel>
 
