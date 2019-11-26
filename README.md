@@ -66,3 +66,12 @@ cd ../backend && pip install flask && python app.py
 ```
 
 #### Open http://127.0.0.1:5000/
+
+## About
+
+This software (Map System) is an coursework for "Internship" and the instructor is Jianguang, Wu
+
+```
+Author: Chengxuan Ying(@chengsyuan), Ting yi Yu(@paranoiall) and Junwen Huang(inkevin).
+Last Update: 11.26.2019
+```
